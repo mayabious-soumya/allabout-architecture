@@ -12,10 +12,11 @@
   <body>
      
     <?php include("include/header.php");?> 
-
+    <!---
     <section class="inside-page-banner">
         <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
     </section>
+    --->
 
 
     <section class="view-profile-mainblock">
@@ -133,7 +134,13 @@
                     </div>
                     <div class="col-sm-8 col-lg-9">
                         <div class="view-profile-details-right">
+
                             <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Company Details</h4>
+                                </div>
+
+
                                 <div class="card-body">
                                     <div class="profile-all-details-list">
                                         <table>
@@ -148,7 +155,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="titel"> About Organisation </td>
-                                                    <td class="description"> About Organisation</td>
+                                                    <td class="description"> 
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br><br>
+
+                                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="titel"> Genre </td>
@@ -170,6 +181,23 @@
                                                     <td class="titel"> Last year Turnover </td>
                                                     <td class="description"> Ammount </td>
                                                 </tr>
+                                                                                          
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Legal Document Details</h4>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="profile-all-details-list">
+                                        <table>
+                                            <tbody>
                                                 <tr>
                                                     <td class="titel"> Trade Licence </td>
                                                     <td class="description"> Trade Licence </td>
@@ -179,10 +207,27 @@
                                                     <td class="titel"> GST Certificate (If available) </td>
                                                     <td class="description"> GST Number</td>
                                                 </tr>
+                                                                                          
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
 
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Community Details</h4>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="profile-all-details-list">
+                                        <table>
+                                            <tbody>
+                                                
                                                 <tr>
                                                     <td class="titel">  What can you Give to the community </td>
-                                                    <td class="description"> What can you Give to the community</td>
+                                                    <td class="description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </td>
                                                 </tr>
 
                                                 <tr>
@@ -197,7 +242,7 @@
 
                                                 <tr>
                                                     <td class="titel"> What can you need from the Community with? </td>
-                                                    <td class="description"> </td>
+                                                    <td class="description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </td>
                                                 </tr>
 
                                                                                           
@@ -206,6 +251,9 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
                         </div>
                     </div>
                 </div>

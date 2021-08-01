@@ -3301,7 +3301,7 @@ body.sidebar-open{
     font-weight: bold !important;
 }
 html:not(.dark-style) .account-settings-links .list-group-item.active {
-    background: transparent !important;
+    background: transparent;
 }
 .registration-main-bkock .account-settings-multiselect ~ .select2-container {
     width: 100% !important;
@@ -3459,6 +3459,8 @@ border-radius: 8px;
 .profile-block .media img{
   max-width: 110px;
   height: auto;
+  border-radius: 100%;
+  border: 4px solid #fff
 }
 
 .profile-block .btn-outline-primary {
@@ -3585,7 +3587,9 @@ border-radius: 8px;
   text-decoration: none;
   position: relative;
 }
-
+.exzoom_zoom_outer{
+  top: 0 !important;
+}
 .product-details-topblock .product-main-gallery .exzoom_img_box{
   height: auto !important;
 }
@@ -5105,6 +5109,7 @@ border-radius: 8px;
 .view-profile-details-right table td:first-child, .view-profile-details-right table th:first-child{
     color: #495057;
     font-weight: 700;
+    min-width: : 250px;
 }
 
 .view-profile-details-right table tr:nth-child(odd){
@@ -5116,7 +5121,22 @@ border-radius: 8px;
     border-width: 0;
     transition: all .2s;
     margin-bottom: 30px;
+}
 
+.view-profile-details-right .card .card-title{
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  color: #212121;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 600;
 }
 
 
@@ -5149,66 +5169,70 @@ border-radius: 8px;
   background-color: #ffffff
 }
 
-.profile-block .left-block{
+.editprofile-main-bkock .profile-block .left-block{
   background-color: #65af56;
 }
 
-.profile-block .list-group-item{
+.editprofile-main-bkock .profile-block .list-group-item{
   background-color: transparent;
 }
 
-.registration-main-bkock .light-style .account-settings-links .list-group-item.active {
+.editprofile-main-bkock .registration-main-bkock .light-style .account-settings-links .list-group-item.active {
     color: #ffffff !important;
 }
 
-.profile-block .list-group-item-action{
+.editprofile-main-bkock .profile-block .list-group-item-action{
   color: #ffffff !important;
 }
 
-.profile-block .form-section-block{
+.editprofile-main-bkock .profile-block .form-section-block{
     border-bottom: 1px solid #f5f5f5;
     background-color: #fff;
     padding: 20px;
     margin: 0 0 15px 0;
-    border-radius: 8px;
+    border-radius: .25rem;
     box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
 }
 
-.profile-block .media{
-    border-bottom: 1px solid #f5f5f5;
-    background-color: #65af56;
+.editprofile-main-bkock .profile-block .form-section-block:last-child{
+  margin-bottom: 0 !important;
+}
+
+.editprofile-main-bkock .profile-block .media{
+    border-bottom: 1px solid #388e3c;
+    background-color: #388e3c;
     padding: 20px;
-    margin: 0;
-    border-radius: 8px;
+    margin: 0 1.25rem;
+    border-radius: .25rem;
     box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
-display: flex;
+    -webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+    display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.profile-block .btn-outline-primary {
+.editprofile-main-bkock .profile-block .btn-outline-primary {
     color: #ffffff;
     background-color: transparent;
     background-image: none;
     border-color: #ffffff;
 }
 
-.profile-block .media .text-light {
+.editprofile-main-bkock .profile-block .media .text-light {
     color: #ffffff !important;
 }
 
-.profile-block h4{
+.editprofile-main-bkock .profile-block h4{
     padding: 0.85rem 1.5rem;
     background: #173810;
     color: #fff;
     font-size: 18px;
 }
 
-.profile-block .media .btn-default{
+.editprofile-main-bkock .profile-block .media .btn-default{
   background-color: #173810;
     padding: 4px 8px;
     margin: 0;
@@ -5216,4 +5240,38 @@ display: flex;
     margin-top: -6px;
     color: #fff;
     font-size: 14px;
+}
+
+.editprofile-main-bkock .profile-block .list-group-item.active{
+  background: #388e3c !important;
+  background-color: #388e3c !important;
+  border-color: #388e3c !important;
+}
+
+.edit-profile-submit-block{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  margin: .5rem;
+  max-width: 100%;
+}
+.edit-profile-submit-block .btn{
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.edit-profile-submit-block .cancel-btn{
+  background-color: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.choices__list--multiple .choices__item{
+  background-color: #388e3c !important;
+  border-color: #388e3c !important;
+  color: #ffffff !important;
 }
