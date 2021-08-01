@@ -32,12 +32,12 @@
 
                     <div class="row">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-lg-3">
                             <div class="user-image">
                                 <img src="images/testimonial1.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 col-lg-9">
 
                             <div class="profile-highlight-block">
                                 <div class="user-name-address-block">
@@ -80,7 +80,7 @@
         <div class="view-profile-details">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 col-lg-3">
                         <div class="view-profile-details-left">
                             
                             <!----personal details-->
@@ -131,7 +131,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8 col-lg-9">
                         <div class="view-profile-details-right">
                             <div class="card">
                                 <div class="card-body">
