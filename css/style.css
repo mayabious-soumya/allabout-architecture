@@ -3491,84 +3491,6 @@ border-radius: 8px;
 }
 
 
-/*///2021.07.16////*/
-
-
-.profile-block .left-block{
-  background-color: #65af56;
-}
-
-.profile-block .list-group-item{
-  background-color: transparent;
-}
-
-.registration-main-bkock .light-style .account-settings-links .list-group-item.active {
-    color: #ffffff !important;
-}
-
-.profile-block .list-group-item-action{
-  color: #ffffff !important;
-}
-
-.profile-block .col-md-9{
-  background-color: #fafafc;
-  padding: 0 30px;
-}
-
-.profile-block .form-section-block{
-    border-bottom: 1px solid #f5f5f5;
-    background-color: #fff;
-    padding: 20px;
-    margin: 0 0 15px 0;
-    border-radius: 8px;
-    box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
-}
-
-.profile-block .media{
-    border-bottom: 1px solid #f5f5f5;
-    background-color: #65af56;
-    padding: 20px;
-    margin: 0;
-    border-radius: 8px;
-    box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
--moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
-display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.profile-block .btn-outline-primary {
-    color: #ffffff;
-    background-color: transparent;
-    background-image: none;
-    border-color: #ffffff;
-}
-
-.profile-block .media .text-light {
-    color: #ffffff !important;
-}
-
-.profile-block h4{
-    padding: 0.85rem 1.5rem;
-    background: #173810;
-    color: #fff;
-    font-size: 18px;
-}
-
-.profile-block .media .btn-default{
-  background-color: #173810;
-    padding: 4px 8px;
-    margin: 0;
-    line-height: 20px;
-    margin-top: -6px;
-    color: #fff;
-    font-size: 14px;
-}
-
-
 
 /*/////product-details-mainblock//////*/
 
@@ -4814,7 +4736,7 @@ display: flex;
 
 .profile-top-details .profile-highlight-block{
   width: 100%;
-  padding: 30px 0;
+  padding: 0;
   margin: 0;
   border: none;
   outline: none;
@@ -4824,6 +4746,167 @@ display: flex;
   align-items: flex-start;
 }
 
+.profile-top-details .profile-highlight-block .user-name{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #212121;
+  font-size: 28px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.profile-top-details .profile-highlight-block .seller-address{
+  width: 100%;
+  padding: 10px 0 0 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: #878787;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 600;
+}
+
+.profile-top-details .profile-highlight-block .seller-address .icon{
+  display: inline-block;
+  padding-right: 10px;
+}
+
+
+
+
+.profile-top-details .green-credits-block{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.profile-top-details .green-credits-block .green-credits-box{
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  border: 4px dashed #388e3c;
+  border-style: dashed;
+  position: relative;
+  text-align: center;
+}
+.green-credits-box-header{
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-align: center;
+  position: absolute;
+  margin-top: -17px !important;
+  left: 0;
+  top: 0;
+}
+
+.green-credits-box-header span{
+  display: inline-block;
+  padding: 0px 15px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  background-color: #388e3c;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  min-width: 200px;
+  text-align: center;
+}
+
+.green-credits-box .green-creadit-coins-box{
+  width: 100%;
+  display: inline-block;
+  padding: 20px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.green-credits-box .green-creadit-coins-box .green-credits{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url(../images/green-creadit-icon.png) no-repeat;
+  padding: 0;
+  margin: 4px 0 0 0;
+  border: none;
+  outline: none;
+}
+
+
+.green-credits-box .green-creadit-coins-box .green-creadit-details{
+    width: 100%;
+    padding: 0 0 0 10px;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 260px;
+}
+.green-credits-box .green-creadit-coins-box .green-creadit-details p{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: #878787;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+.green-credits-box .green-creadit-coins-box .green-creadit-details .text1{
+  color: #212121;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.profile-top-details .profile-highlight-block .user-designation{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #212121;
+  font-size: 18px;
+  line-height: normal;
+  font-weight: 600;
+}
+
+
+
 
 .view-profile-mainblock .view-profile-details{
   width: 100%;
@@ -4832,6 +4915,305 @@ display: flex;
   border: none;
   outline: none;
   text-decoration: none;
-  background-color: #fafafa;
+  background-color: #e8eaeb;
 }
 
+
+.view-profile-details .view-profile-details-left{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.view-profile-details-left .user-personal-details-list{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+.view-profile-details-left .user-personal-details-list ul{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+}
+.view-profile-details-left .user-personal-details-list ul li{
+  width: 100%;
+  padding: 0 0 20px 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #212121;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.view-profile-details-left .user-personal-details-list .list-icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 4px 0 0 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #212121;
+}
+
+.view-profile-details-left .user-personal-details-list .list-details{
+  width: 100%;
+  padding: 0 0 0 8px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+}
+
+.view-profile-details-left .user-personal-details-list .list-details span{
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  color: #212121;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 600;
+}
+
+.view-profile-details-left .user-personal-details-list .list-details small{
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  color: #878787;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.user-interest-block{
+  width: 100%;
+  display: block;
+  padding: 30px 0 0 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.user-interest-block .titel{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #212121;
+  font-size: 18px;
+  line-height: normal;
+  font-weight: 600;
+}
+
+.user-interest-block .user-interest-list{
+   width: 100%;
+  display: block;
+  padding: 10px 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.user-interest-block .user-interest-list .badge{
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 4px;
+  background-color:#212121; 
+  color: #ffffff;
+}
+
+
+.view-profile-details-right{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  border-left: 1px solid #ccc;
+  padding-left: 30px;
+  max-width: 100%;
+}
+
+.view-profile-details-right .profile-all-details-list{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  
+}
+
+.view-profile-details-right table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: #212529;
+    max-width: 900px;
+    border: none;
+    border: 1px solid #e9ecef;
+}
+.view-profile-details-right table td, .view-profile-details-right table th {
+    padding: 8px 15px;
+    vertical-align: top;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.view-profile-details-right table td:first-child, .view-profile-details-right table th:first-child{
+    color: #495057;
+    font-weight: 700;
+}
+
+.view-profile-details-right table tr:nth-child(odd){
+  background-color: #f7f7f7;
+}
+
+.view-profile-details-right .card {
+    box-shadow: 0 0.46875rem 2.1875rem rgb(8 10 37 / 3%), 0 0.9375rem 1.40625rem rgb(8 10 37 / 3%), 0 0.25rem 0.53125rem rgb(8 10 37 / 5%), 0 0.125rem 0.1875rem rgb(8 10 37 / 3%);
+    border-width: 0;
+    transition: all .2s;
+    margin-bottom: 30px;
+
+}
+
+
+/*///////editprofile-main-bkock//////*/
+
+.editprofile-main-bkock{
+  background-color: #e8eaeb;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0;
+}
+
+.editprofile-main-bkock .container{
+  max-width: 100%;
+  padding: 0 30px;
+}
+
+.editprofile-main-bkock .card{
+  box-shadow: 0 0.46875rem 2.1875rem rgb(8 10 37 / 3%), 0 0.9375rem 1.40625rem rgb(8 10 37 / 3%), 0 0.25rem 0.53125rem rgb(8 10 37 / 5%), 0 0.125rem 0.1875rem rgb(8 10 37 / 3%);
+  border-width: 0;
+  transition: all .2s;
+  margin-bottom: 30px;
+}
+
+.editprofile-main-bkock .tab-content .form-section-block{
+  box-shadow: 0 0.46875rem 2.1875rem rgb(8 10 37 / 3%), 0 0.9375rem 1.40625rem rgb(8 10 37 / 3%), 0 0.25rem 0.53125rem rgb(8 10 37 / 5%), 0 0.125rem 0.1875rem rgb(8 10 37 / 3%);
+  border-width: 0;
+  transition: all .2s;
+  margin-bottom: 30px;
+  background-color: #ffffff
+}
+
+.profile-block .left-block{
+  background-color: #65af56;
+}
+
+.profile-block .list-group-item{
+  background-color: transparent;
+}
+
+.registration-main-bkock .light-style .account-settings-links .list-group-item.active {
+    color: #ffffff !important;
+}
+
+.profile-block .list-group-item-action{
+  color: #ffffff !important;
+}
+
+.profile-block .form-section-block{
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 0 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+-webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+-moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+}
+
+.profile-block .media{
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #65af56;
+    padding: 20px;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+-webkit-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+-moz-box-shadow: 0px ​3px 5px -3px rgba(0,0,0,0.21);
+display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-block .btn-outline-primary {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ffffff;
+}
+
+.profile-block .media .text-light {
+    color: #ffffff !important;
+}
+
+.profile-block h4{
+    padding: 0.85rem 1.5rem;
+    background: #173810;
+    color: #fff;
+    font-size: 18px;
+}
+
+.profile-block .media .btn-default{
+  background-color: #173810;
+    padding: 4px 8px;
+    margin: 0;
+    line-height: 20px;
+    margin-top: -6px;
+    color: #fff;
+    font-size: 14px;
+}

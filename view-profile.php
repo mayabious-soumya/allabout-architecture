@@ -118,7 +118,7 @@
                             <!----personal details--end---->
 
                             <div class="user-interest-block">
-                                <h3 class="titel"></h3>
+                                <h3 class="titel">Interest</h3>
                                 <div class="user-interest-list">
                                     <span class="badge badge-secondary">Interest 1</span>
                                     <span class="badge badge-secondary">Interest 2</span>
