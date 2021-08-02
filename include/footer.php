@@ -3,10 +3,10 @@
             <div class="row">
                 <div class="col-sm-3">
                     <img src="images/footer-logo.png" class="mb-4">
-                    <p class="mb-4">555 California str, Suite 100<br>San Francisco, CA 94107</p>
-                    <a href="#">1-800-312-2121</a>
-                    <a href="#" class="mb-4">1-800-310-1010</a>
-                    <a href="#">info@allaboutarchitecture.com</a>
+                    <p class="mb-4">Address - 98, D, N.S.C Bose Road, Kolkata</p>
+                    <a href="#">91-9007159440</a>
+                    <!--<a href="#" class="mb-4">1-800-310-1010</a>-->
+                    <a href="#">admin@allaboutarchitecture.in</a>
                 </div>
                 <div class="col-sm-3">
                     <h2 class="mb-4">NAVIGATE</h2>
@@ -25,6 +25,7 @@
                     <ul class="nav2">
                         <li><a href="#">COMPANY</a></li>
                         <li><a href="#">WHAT WE DO</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
                         <li><a href="#">HELP CENTER</a></li>
                         <li><a href="#">TERMS OF SERVICE</a></li>
                         <li><a href="#">CONTACT</a></li>
@@ -176,3 +177,8 @@
 
 	  </div>
 	</div>
+<script>
+	var txtSearch = '<?php echo $txtSearch;?>';
+	var sh_cat_id = '<?php echo $sh_cat_id?>';
+	var sh_zone_id = '<?php echo $sh_zone_id;?>';
+</script>

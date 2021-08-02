@@ -5473,3 +5473,9 @@ border-radius: 8px;
   color: inherit;
   text-decoration: underline;
 }
+
+.footer-wrap .nav2 li a{
+  text-transform: uppercase;
+  transition: 0.5s;
+  font-weight: bold;
+}
