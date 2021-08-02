@@ -26,6 +26,7 @@
                         <li><a href="#">COMPANY</a></li>
                         <li><a href="#">WHAT WE DO</a></li>
                         <li><a href="faq.php">FAQ</a></li>
+                        <li><a href="privacy-policy.php">Privacy Policy</a></li>
                         <li><a href="#">HELP CENTER</a></li>
                         <li><a href="#">TERMS OF SERVICE</a></li>
                         <li><a href="#">CONTACT</a></li>
