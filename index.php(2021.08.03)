@@ -103,7 +103,7 @@
                     <img src="images/home1.png" class="img-fluid home-wrap1-pic1">
                 </div>
                 <div class="col-sm-8">
-                    <h2>What <span>We Do?</span></h2>
+                    <h2>What<br><span>We Do?</span></h2>
                     <hr>
                     <div class="clearfix"></div>
                     <div class="row">
@@ -208,10 +208,10 @@
       </section>
       <section class="ceowrap">
         <div class="box2">
-            <img src="images/nsrcel-main-logo.png" class="img-fluid">
+            <img src="images/from-desk-2.jpg" class="img-fluid">
         </div>
         <div class="box3">
-            <h2>Who <span>are We</span></h2>
+            <h2>About Our<br><span>Company</span></h2>
             <hr>
             <div class="clearfix"></div>
             <p>We at All About Architecture are a community dedicated to accelerate the growth of Sustainable Indian cities and Communities...</p>
@@ -253,7 +253,7 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h2>Contact With Us</h2>
-                    <h3>Get in touch with us and work together</h3>
+                    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
                 </div>
                 <div class="col-sm-4">
                     <a href="javascript:void(0);" data-toggle="modal" data-target="#modalLoginForm">Click here to Collaborate</a>

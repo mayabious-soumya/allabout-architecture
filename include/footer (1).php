@@ -29,7 +29,7 @@
                         <li><a href="privacy-policy.php">Privacy Policy</a></li>
                         <!--<li><a href="#">HELP CENTER</a></li>-->
                         <li><a href="terms-service.php">TERMS OF SERVICE</a></li>
-                        <li><a href="contact-us.php">CONTACT</a></li>
+                        <li><a href="#">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">

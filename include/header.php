@@ -1,5 +1,31 @@
 <?php
-	include('include/db_conn.php')
+	session_start();
+	
+	include('include/db_conn.php');
+	
+	$bSideBarDisplay = 'display:none';
+	//$bSideBarDisplay = '';
+	//unset($_SESSION['ab_user']);
+	$ab_user = array();
+	if(isset($_SESSION['ab_user']))
+	{
+		$ab_user = $_SESSION['ab_user'];
+		$bSideBarDisplay = '';
+	}
+	
+	$txtSearch = '';
+	$sh_cat_id = '0';
+	$sh_zone_id = '0';
+	
+	
+	
+	$strSql = "
+	SELECT zone_id, zone_name
+	FROM tblzone
+	where zone_status = 'A'
+	";
+	$dtSearchZone = getDatatable($strSql);	
+	//print_r($dtSearchZone);
 ?>
 <header class="navwrap">
         <div class="container">
@@ -16,9 +42,24 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="topnav">
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="faq.php">Faq</a></li>
+                        <li><a href="contact-us.php">Contact Us</a></li>
+						
                         <li>
-                          <a href=""  data-toggle="modal" data-target="#modalLoginForm">Login / Colaborate </a>
+						  <?php
+						  if(isset($_SESSION['ab_user']))
+						  {
+							
+							echo '<a href="javascript:void(0)" >Welcome '.$ab_user[0]['usr_name'].' </a>';
+						  }
+						  else
+						  {
+							?>
+							<a href=""  data-toggle="modal" data-target="#modalLoginForm">Login / Colaborate </a>
+							<?php
+						  }
+						  ?>	
+                          
                         </li>
 
 
@@ -52,9 +93,25 @@
               <ul id="menu">
                 <a href="index.php"><li>Home</li></a>
                 <a href="workshop.php"><li>Workshop</li></a>
-                <a href="#"><li>Ed Videos</li></a>
+                <a href="edvideos.php"><li>Ed Videos</li></a>
+                <a href="faq.php"><li>Faq</li></a>
                 <a href="#"><li>Contact Us</li></a>
-                <a href="#" target="_blank"><li>Login / Colaborate</li></a>
+				<?php
+				  if(isset($_SESSION['ab_user']))
+				  {
+					$ab_user = $_SESSION['ab_user'];
+					echo '<a href="javascript:void(0);" ><li>Welcome '.$ab_user[0]['usr_name'].'</li> </a>';
+				  }
+				  else
+				  {
+					?>
+					<a href="javascript:void(0);"  data-toggle="modal" data-target="#modalLoginForm"><li>Login / Colaborate</li></a>
+					<?php
+				  }
+				  ?>
+						  
+						  
+                <!-- <a href="#" target="_blank"><li>Login / Colaborate</li></a> -->
               </ul>
             </div>
           </nav>
@@ -62,7 +119,7 @@
 
 
 <!---left-bar--->
-<div class="left-sidebar-main" style="display: none;">
+<div class="left-sidebar-main" style="<?php echo $bSideBarDisplay;?>" >
   <div class="left-sidebar-box">
 
     <div class="sidebar-header-block">
@@ -83,41 +140,76 @@
     <div class="sidebar-menu-block">
       <ul class="menu-list">
         <li>
-          <a href="" data-toggle="modal" data-target="#searchPopup">
+          <a href="javascript:void(0);" data-toggle="modal" data-target="#searchPopup">
             <div class="menu">
               <span class="menu-icon"><img src="images/search-icon.png" alt="icon"></span>
               <span class="menu-name">Search</span>
             </div>
           </a>
         </li>
+		
 
         <li>
-          <a href="#">
-            <div class="menu">
-              <span class="menu-icon"><img src="images/dashboard-icon.png" alt="icon"></span>
-              <span class="menu-name">Dashboard Dashboard Dashboard Dashboard Dashboard</span>
-            </div>
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
+		  <?php
+		  $usr_type = 'javascript:void(0);';
+		  if(count($ab_user) > 0)
+		  {
+			 if($ab_user[0]['usr_type']=='S')
+			 {
+				$usr_type = 'sprofile.php';
+			 }
+			 else if($ab_user[0]['usr_type']=='M')
+			 {
+				$usr_type = 'mprofile.php';
+			 }
+			 else if($ab_user[0]['usr_type']=='P')
+			 {
+				$usr_type = 'pprofile.php';
+			 }
+			 else if($ab_user[0]['usr_type']=='C')
+			 {
+				$usr_type = 'cprofile.php';
+			 }
+		  }
+		  ?>	
+          <a href="<?php echo $usr_type;?>">
             <div class="menu">
               <span class="menu-icon"><img src="images/profile-icon.png" alt="icon"></span>
               <span class="menu-name">Profile</span>
             </div>
           </a>
         </li>
+		
+		<?php
+		  if(count($ab_user) > 0)
+		  {
+			 if($ab_user[0]['usr_type']=='M')
+			 {
+				?>
+				<li>
+				  <a href="my-listings.php">
+					<div class="menu">
+					  <span class="menu-icon"><img src="images/my-listings-icon.png" alt="icon"></span>
+					  <span class="menu-name">My Listings</span>
+					</div>
+				  </a>
+				</li>
+				<?php
+			 }
+		  }
+		  ?>
+        
 
+		<!--
         <li>
-          <a href="#">
+          <a href="profile.php">
             <div class="menu">
-              <span class="menu-icon"><img src="images/my-listings-icon.png" alt="icon"></span>
-              <span class="menu-name">My Listings</span>
+              <span class="menu-icon"><img src="images/dashboard-icon.png" alt="icon"></span>
+              <span class="menu-name">Profile</span>
             </div>
           </a>
         </li>
-
+		
         <li>
           <a href="#">
             <div class="menu">
@@ -126,7 +218,7 @@
             </div>
           </a>
         </li>
-
+		
         <li>
           <a href="#">
             <div class="menu">
@@ -144,9 +236,9 @@
             </div>
           </a>
         </li>
-
-        <li>
-          <a href="#">
+		-->
+		<li>
+          <a href="logout.php">
             <div class="menu">
               <span class="menu-icon"><img src="images/logout.png" alt="icon"></span>
               <span class="menu-name">Logout</span>
@@ -185,19 +277,19 @@
 
 
               <div class="login-main-box" id="Login">
-
+				<form id="frmLogin" name="frmLogin" action="login.php" method="post"  > 
                 <div class="card2 card border-0 px-4">
                     
                     <div class="row px-3"> 
                       <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label> 
-                      <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> 
+                      <input class="mb-4" type="text" name="lg_usr_email" id="lg_usr_email" placeholder="Enter a valid email address"> 
                     </div>
 
                     <div class="row px-3"> 
                       <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
-                      <input type="password" name="password" placeholder="Enter password"> 
+                      <input type="password" name="lg_usr_password" id="lg_usr_password" placeholder="Enter password"> 
                     </div>
-
+					<!--
                     <div class="row px-3 mb-4">
                         <div class="custom-control custom-checkbox custom-control-inline"> 
                           <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> 
@@ -206,13 +298,14 @@
 
                         <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
                     </div>
+					-->
 
                     <div class="row px-3 mb-4">
-                        <div class="line"></div> <small class="or text-center">Or</small>
+                        <div class="line"></div> <small class="or text-center">-</small>
                         <div class="line"></div>
                     </div>
 
-                    <div class="row mb-4 social-media-login">
+                    <div class="row mb-4 social-media-login" style="display:none;">
                         <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
                         <div class="google text-center mr-3">
                             <i class="fab fa-google"></i>
@@ -231,7 +324,8 @@
 
 
                     <div class="row mb-3 submit-button-block"> 
-                      <button type="submit" class="btn btn-blue text-center">Login</button> 
+                      <button type="submit" class="btn btn-blue text-center" style="display:none;">Login</button> 
+                      <button type="button" class="btn btn-blue text-center" onClick="checkLogin()" >Login</button> 
                     </div>
 
                     <div class="row mb-4 account-button-block"> 
@@ -241,46 +335,59 @@
                     </div>
 
                 </div>
+				</form>
+				
+				
               </div>
 
 
               <div class="login-main-box" id="Registration" style="display: none;">
-
-
+				<form id="frmRegister" name="frmRegister" action="registration-plan-choose.php" method="post"  > <!-- onSubmit="return checkRegister();" -->			
+				
                    <div class="card2 card border-0 px-4">
                     
 
                     <div class="registration-form-block">
 
                       <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">First Name</h6></label> 
-                        <input class="mb-4" type="text" name="Name" placeholder="Enter First Name"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">User Name</h6></label> 
+                        <input class="mb-4" type="text" name="usr_name" id="usr_name" placeholder="Enter User Name"> 
                       </div>
-
+					  
+					  <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
+                        <input class="mb-4" type="text" name="usr_password" id="usr_password" placeholder="Enter Password"> 
+                      </div>
+					  
+					  <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Type</h6></label> 
+                        <select class="mb-4 form-select" name="usr_type" id="usr_type" >
+                          <option value="" selected>Select Type</option>
+                          <option value="S">Student</option>
+                          <option value="P">Professional</option>
+                          <option value="M">Manufacturer</option>
+                          <option value="C">Contributor</option>
+                        </select> 
+                      </div>
+					  
+						<!--
                       <div class="row px-3"> 
                         <label class="mb-1"><h6 class="mb-0 text-sm">Last Name</h6></label> 
                         <input class="mb-4" type="text" name="Name" placeholder="Enter Last Name"> 
                       </div>
-
-                      <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label> 
-                        <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> 
-                      </div>
+						-->
 
                       <div class="row px-3"> 
                         <label class="mb-1"><h6 class="mb-0 text-sm">Contact No</h6></label> 
-                        <input class="mb-4" type="text" name="contact" placeholder="Enter Phone Number"> 
+                        <input class="mb-4" type="text" name="usr_contact" id="usr_contact" placeholder="Enter Contact No"> 
+                      </div>
+					  
+					  <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label> 
+                        <input class="mb-4" type="text" name="usr_email" id="usr_email" placeholder="Enter a valid email address"> 
                       </div>
 
-                      <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Type</h6></label> 
-                        <select class="mb-4 form-select" aria-label="Default select example">
-                          <option selected>select one Type</option>
-                          <option value="1">Designer</option>
-                          <option value="2">Saler</option>
-                          <option value="3">Beyer</option>
-                        </select> 
-                      </div>
+                      
 
                       
 
@@ -290,7 +397,8 @@
 
 
                     <div class="row mb-3 submit-button-block"> 
-                      <button type="submit" class="btn btn-blue text-center">Register</button> 
+                      <button type="button" id="btnRegister" name="btnRegister" class="btn btn-blue text-center" onClick="checkRegister()">Register</button> 
+                      <button style="display:none;" type="submit" id="save_user" name="save_user" class="btn btn-blue text-center">Register</button> 
                     </div>
 
                     <div class="row mb-4 account-button-block"> 
@@ -302,7 +410,7 @@
                 </div>
 
 
-
+				</form>			
               </div>
 
 
@@ -577,14 +685,16 @@
                       </div>
                       <div class="search-content-box">
                         <div class="search-by-name">
-                          <form>
+                          <form action="search.php" method="post" id="frmSearch" name="frmSearch" onSubmit="return checkSearch()" >
                             <div class="search-by-name-input">
-                               <input class="form-control" type="text" placeholder="Search.." name="search">
+                               <input id="txtSearch" name="txtSearch" class="form-control" type="text" placeholder="Enter Product Name..." >
                             </div>
                             <div class="search-logo">
                               <img src="images/search-logo.png" class="img-fluid">
                             </div>
                             <div class="search-button-block">
+							  <input type="hidden" id="sh_cat_id" name="sh_cat_id" value="0" >	
+							  <input type="hidden" id="sh_zone_id" name="sh_zone_id" value="0" >	
                               <button type="submit" class="btn search-button">Search</button>
                             </div>
                           </form>
@@ -600,7 +710,17 @@
                       </div>
                       <div class="search-content-box">
                         <div class="zone-block">
-
+						  <?php
+						  for($iRow=0;$iRow<=count($dtSearchZone)-1;$iRow++)
+						  {
+							echo '
+							  <div class="zone-button-box">
+								 <button id="z_'.$dtSearchZone[$iRow]['zone_id'].'" class="btn zone-button" data-zone_id="'.$dtSearchZone[$iRow]['zone_id'].'" >'.$dtSearchZone[$iRow]['zone_name'].'</button>
+							  </div>
+							';		
+						  }
+						  ?>
+							<!--
                           <div class="zone-button-box">
                              <button class="btn zone-button">East Zone</button>
                           </div>
@@ -613,6 +733,7 @@
                           <div class="zone-button-box">
                              <button class="btn zone-button">North Zone</button>
                           </div>
+						  -->
 
                         </div>
                       </div>
