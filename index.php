@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>	
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +16,7 @@
      
   <?php include("include/header.php");
   
-  //unset($_SESSION['user_login']);
+  
   
   $strSql = "
 	select slno, date_format(`datetime`,'%d') workshop_day, date_format(`datetime`,'%M') workshop_month,
@@ -100,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="images/home1.png" class="img-fluid home-wrap1-pic1">
+                    <img src="images/infographics.jpg" class="img-fluid home-wrap1-pic1">
                 </div>
                 <div class="col-sm-8">
                     <h2>What <span>We Do?</span></h2>
@@ -307,6 +310,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <h2 class="titel"><span>Collaborator</span></h2>
+                </div>
+
+                <div class="col-sm-12">
                     <div class="owl-carousel owl-carousel-3">
 						<?php
 						for($iRow=0;$iRow<=count($dtTestimonial)-1;$iRow++)
@@ -322,7 +329,7 @@
 									<div class="col-sm-4">
 										<h2>'.$dtTestimonial[$iRow]['tm_name'].'</h2>
 										<h3>'.$dtTestimonial[$iRow]['tm_designation'].'</h3>
-										<img src="images/testimonial1.jpg">
+										<img src="admin/testimonials/'.$dtTestimonial[$iRow]['tm_image'].'">
 									</div>
 								</div>
 							</div>

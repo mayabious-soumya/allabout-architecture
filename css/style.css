@@ -644,6 +644,7 @@ body {
 .ourteam h2 span {
   font-weight: bold;
 }
+
 .ourteam h3 {
   font-size: 20px;
   color: #000000;
@@ -697,6 +698,8 @@ body {
   padding-left: 34px;
   padding-top: 20px;
 }
+
+
 .testimonial-wrap h2 {
   font-size: 14px;
   color: #626262;
@@ -710,6 +713,23 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.testimonial-wrap .titel {
+  font-size: 28px !important;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 50px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  color: #4b4e53;
+  text-align: center !important;
+}
+.testimonial-wrap .titel span {
+  font-weight: bold;
+}
+
+
 .testimonial-wrap .col-sm-4 {
   border-bottom: solid 1px #dedfdf;
   position: relative;
@@ -1715,6 +1735,34 @@ body.sidebar-open{
   transition: all 0.2s;
 }
 
+/*////*/
+
+body.small-sidebar{
+  padding-left: 100px;
+}
+
+
+.small-sidebar .navwrap {
+    width: 100%;
+    display: block;
+    position: fixed;
+    padding: 15px 0;
+    top: 0;
+    z-index: 9999;
+    left: 0;
+    background: #fff;
+}
+
+.small-sidebar .topnav li a{
+  color: #222222;
+}
+
+.small-sidebar .modal{
+  z-index: 9999;
+}
+
+/*/////*/
+
 .sidebar-open{
   padding-left: 320px;
 }
@@ -1751,13 +1799,12 @@ body.sidebar-open{
   color: #222222;
 }
 
-.sidebar-open header .logo img{
-  -webkit-filter: grayscale(1) invert(1);
-  filter: grayscale(1) invert(1);
-}
 .sidebar-open .modal{
   z-index: 9999;
 }
+
+
+
 
 
 /*/////search-popup///*/
