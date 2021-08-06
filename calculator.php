@@ -61,34 +61,50 @@
                             </div>
 
                             <!------step1----->
-                            <div class="card-body pt-0">
-                                <h4 class="heading mb-4 pb-1">What should be done?</h4>
+                            <div class="card-body show pt-0 noimage-only-text select-zone-block">
+                                <h4 class="heading mb-4 pb-1">Select Zone</h4>
+
                                 <div class="radio-group row justify-content-center px-3">
+
                                     <div class="card-block radio selected">
-                                        <div class="row justify-content-end d-flex px-3">
+                                        <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
                                         </div>
-                                        <div class="row justify-content-center d-flex">
-                                            <div class="pic"> <img src="https://i.imgur.com/4uBi6ib.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Create Website</h5>
+                                        <div class="radio-image-text-block">
+                                            <h5 class="mb-4">EASTERN ZONE</h5>
                                         </div>
                                     </div>
                                     <div class="card-block radio">
-                                        <div class="row justify-content-end d-flex px-3">
+                                        <div class="radio-top-round-icon">
                                             <div class="fa fa-circle"></div>
                                         </div>
-                                        <div class="row justify-content-center d-flex">
-                                            <div class="pic"> <img src="https://i.imgur.com/nwy6Wkh.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Website Relaunch</h5>
+                                        <div class="radio-image-text-block">
+                                            <h5 class="mb-4">WESTERN ZONE</h5>
                                         </div>
                                     </div>
                                     <div class="card-block radio">
-                                        <div class="row justify-content-end d-flex px-3">
+                                        <div class="radio-top-round-icon">
                                             <div class="fa fa-circle"></div>
                                         </div>
-                                        <div class="row justify-content-center d-flex">
-                                            <div class="pic"> <img src="https://i.imgur.com/74Ez7OS.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Don't Know</h5>
+                                        <div class="radio-image-text-block">
+                                            <h5 class="mb-4">SOUTHERN ZONE</h5>
+                                            <h6 class="small-text">UNION TERRITORIES</h6>
+                                        </div>
+                                    </div>
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-circle"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <h5 class="mb-4">SOUTHERN ZONE</h5>
+                                        </div>
+                                    </div>
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-circle"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <h5 class="mb-4">NORTHERN ZONE</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +195,7 @@
 
 
                             <!------step3----->
-                            <div class="card-body show pt-0 room-type-block">
+                            <div class="card-body pt-0 room-type-block">
                                 <h4 class="heading mb-4 pb-1">Select Room Type</h4>
 
                                   <div class="radio-group row justify-content-center px-3">

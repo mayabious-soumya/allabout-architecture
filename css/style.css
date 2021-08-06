@@ -6174,3 +6174,62 @@ border-radius: 8px;
   background-color: #65af56;
   color: #ffffff;
 }
+.calculator-block .card-block .radio-image-text-block .small-text{
+  width: 100%;
+  font-size: 12px;
+  padding: 0;
+  background-color: #fafafa;
+  margin: 0 !important;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/*/////*/
+
+.calculator-block .noimage-only-text .radio{
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fafafa;
+  min-width: 350px;
+  padding: 15px;
+  min-height: 60px;
+}
+.calculator-block .noimage-only-text .radio.selected{
+  background-color: #65af56;
+  border-color: #65af56;
+}
+
+.calculator-block .noimage-only-text .radio .radio-top-round-icon{
+  position: static;
+  margin-right: 10px;
+}
+
+.calculator-block .noimage-only-text .radio .fa-check{
+  border-color: #ffffff;
+}
+
+.calculator-block .noimage-only-text .radio .radio-image-text-block h5{
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.calculator-block .noimage-only-text .radio .radio-image-text-block .small-text{
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.calculator-block .noimage-only-text .radio.selected .radio-image-text-block .small-text{
+  background-color: #65af56;
+  color: #ffffff; 
+}
