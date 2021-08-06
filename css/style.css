@@ -5957,10 +5957,11 @@ border-radius: 8px;
 }
 
 .calculator-block .fa-check {
-    color: #65af56;
+    color: #fff;
     border-radius: 50%;
     border: 2px solid #65af56;
-    padding: 5px
+    padding: 5px;
+    background-color: #65af56;
 }
 
 .calculator-block .fa-circle {
@@ -6154,7 +6155,7 @@ border-radius: 8px;
 
 .calculator-block .card-block .radio-image-text-block h5{
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   padding: 8px !important;
   background-color: #fafafa;
   margin: 0 !important;
@@ -6167,5 +6168,9 @@ border-radius: 8px;
   white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
 
+.calculator-block .radio.selected .radio-image-text-block h5{
+  background-color: #65af56;
+  color: #ffffff;
 }
