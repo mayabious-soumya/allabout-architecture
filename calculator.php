@@ -61,7 +61,7 @@
                             </div>
 
                             <!------step1----->
-                            <div class="card-body pt-0 noimage-only-text select-zone-block">
+                            <div class="card-body show pt-0 noimage-only-text select-zone-block">
                                 <h4 class="heading mb-4 pb-1">Select Zone</h4>
 
                                 <div class="radio-group row justify-content-center px-3">
@@ -502,7 +502,7 @@
 
 
                             <!------step6----->
-                            <div class="card-body show pt-0">
+                            <div class="card-body pt-0">
                                 <h4 class="heading mb-4 pb-1">Material Details</h4> 
                                 <!--<label class="text-danger mb-3">* Required</label>-->
 
@@ -625,13 +625,26 @@
                             </div>
                             <!------step6----->
 
-                            <div class="card-body pt-0">
-                                <h4 class="heading mb-4 pb-1">Confirmation</h4>
+                            <!------step7--last--->
+                            <div class="card-body pt-0 calculate-result-block">
+                                <h4 class="heading mb-4 pb-1">Your Calculate Result</h4>
                                 <div class="row justify-content-start px-3">
-                                    <p>Form has been submitted Successfully ! <br>You will recieve estimation on your email id and contact no.</p>
+                                    <div class="calculate-result-box">
+                                        <div class="result-details">
+                                            <p>Unit Price : <b>350 .Rs</b> </p>
+
+                                            <p>room square feet calculator: <b>1200 sft</b></p>
+
+                                            <p>Quantity Required : <b>70pc</b> </p>
+                                        </div>
+                                        <div class="total-coust">Total Cost: <b>24,500 .Rs</b></div>
+                                    </div>
                                 </div>
-                                <div class="row justify-content-center"> <img src="https://i.imgur.com/krsWHvd.gif" class="check"> </div>
+                                <div class="row justify-content-center"> <img src="images/calculator/result.gif" class="check"> </div>
                             </div>
+                            <!------step7----->
+
+
                         </div>
                     </div>
                 </div>

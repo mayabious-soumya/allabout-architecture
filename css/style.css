@@ -6360,3 +6360,37 @@ border-radius: 8px;
   padding-left: 8px !important;
   color: #65af56 !important;
 }
+
+/*////////*/
+
+.calculate-result-box{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background-color: #bce7b3;
+}
+
+.calculate-result-box .result-details{
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+}
+
+.calculate-result-box .total-coust{
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  background-color: #65af56;
+  color: #ffffff;
+  font-weight: bold;
+}
