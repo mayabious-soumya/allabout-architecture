@@ -61,7 +61,7 @@
                             </div>
 
                             <!------step1----->
-                            <div class="card-body show pt-0 noimage-only-text select-zone-block">
+                            <div class="card-body pt-0 noimage-only-text select-zone-block">
                                 <h4 class="heading mb-4 pb-1">Select Zone</h4>
 
                                 <div class="radio-group row justify-content-center px-3">
@@ -245,6 +245,79 @@
                             <!------step3--end--->
 
 
+                            <!------step4----->
+                            <div class="card-body show pt-0 full-image-banner parameters-block">
+                                <h4 class="heading mb-4 pb-1">Room Type Parameters</h4>
+
+                                  <div class="radio-group row justify-content-center px-3">
+
+                                    <div class="card-block radio selected">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/room-type-parameters1.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/room-type-parameters2.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Wall</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/room-type-parameters3.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Ceiling</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/room-type-parameters4.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Doors</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/room-type-parameters5.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Windows</h5>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    
+                                    
+                                </div>
+                                
+
+
+                                <div class="row justify-content-center"> 
+                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+
+                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                </div>
+                            </div>
+                            <!------step4--end--->
+
+
 
                             <div class="card-body pt-0">
                                 <h4 class="heading mb-4 pb-1">Website details</h4> <label class="text-danger mb-3">* Required</label>
@@ -264,6 +337,7 @@
                                 </div>
                                 <div class="row justify-content-center"> <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button> <button class="btn btn-blue next mx-2" id="next3" onclick="validate2(0)">Next<span class="fa fa-long-arrow-right"></span></button> </div>
                             </div>
+
                             <div class="card-body pt-0">
                                 <h4 class="heading mb-4 pb-1">Confirmation</h4>
                                 <div class="row justify-content-start px-3">

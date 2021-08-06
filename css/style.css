@@ -6233,3 +6233,18 @@ border-radius: 8px;
   background-color: #65af56;
   color: #ffffff; 
 }
+
+/*///////*/
+.calculator-block .full-image-banner .card-block .radio-image-text-block .pic{
+  height: 210px;
+  padding: 0;
+}
+.calculator-block .full-image-banner .card-block .radio-image-text-block .pic img{
+  width: auto;
+  height: auto;
+  max-width: inherit;
+  max-height: inherit;
+  min-width: 100%;
+  min-height: 100%;
+  filter: inherit;
+}
