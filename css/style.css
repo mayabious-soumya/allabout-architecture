@@ -6249,3 +6249,114 @@ border-radius: 8px;
   min-height: 100%;
   filter: inherit;
 }
+
+.calculator-image-form-box{
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background-color: #e6e6ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.calculator-image-form-box .calculator-left-image-box{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+.calculator-image-form-box .calculator-left-image-box img{
+  max-width: 100%;
+}
+
+.calculator-image-form-box .calculator-form-details-box{
+  width: 480px;
+  max-width: 100%;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background: #ffffff;
+  min-height: 350px;
+}
+
+.calculator-image-form-box .calculator-form-details-box .header-text{
+    display: block;
+    padding: 11.5px 20px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 16px;
+    text-align: left;
+    letter-spacing: normal;
+    text-transform: none;
+    color: #969dbe;
+    background-color: #e9e9ff;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.calculator-image-form-box .calculator-form-details-box .form-block{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.calculator-image-form-box .calculator-form-details-box .form-block .calculator-form-box{
+  width: 100%;
+  padding: 4px 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #9ca2c2;
+}
+.calculator-form-details-box .form-block .calculator-form-box label{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  color: #969dbe;
+}
+.calculator-form-details-box .form-block .calculator-form-box .form-control{
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: right;
+  background: no-repeat;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.calculator-form-details-box .form-block .calculator-form-box select{
+  display: inline-block;
+  width: auto;
+  max-width: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  padding-left: 8px !important;
+  color: #65af56 !important;
+}
