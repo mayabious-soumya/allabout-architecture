@@ -63,7 +63,7 @@
                             <!------step1----->
                             <div class="card-body pt-0">
                                 <h4 class="heading mb-4 pb-1">What should be done?</h4>
-                                <div class="radio-group row justify-content-between px-3">
+                                <div class="radio-group row justify-content-center px-3">
                                     <div class="card-block radio selected">
                                         <div class="row justify-content-end d-flex px-3">
                                             <div class="fa fa-check"></div>
@@ -101,7 +101,7 @@
                             <div class="card-body show pt-0">
                                 <h4 class="heading mb-4 pb-1">EASTERN ZONE: Select Your State</h4>
 
-                                  <div class="radio-group row justify-content-between px-3">
+                                  <div class="radio-group row justify-content-center px-3">
 
                                     <div class="card-block radio selected">
                                         <div class="radio-top-round-icon">
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="radio-image-text-block">
                                             <div class="pic"> <img src="images/calculator/eastern-zone1.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">West Bengal West Bengal West Bengal</h5>
+                                            <h5 class="mb-4">West Bengal West Bengal West Bengal West Bengal West Bengal West Bengal</h5>
                                         </div>
                                     </div>
 
