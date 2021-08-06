@@ -246,7 +246,7 @@
 
 
                             <!------step4----->
-                            <div class="card-body show pt-0 full-image-banner parameters-block">
+                            <div class="card-body pt-0 full-image-banner parameters-block">
                                 <h4 class="heading mb-4 pb-1">Room Type Parameters</h4>
 
                                   <div class="radio-group row justify-content-center px-3">
@@ -316,6 +316,189 @@
                                 </div>
                             </div>
                             <!------step4--end--->
+
+
+                            <!------step5----->
+                            <div class="card-body show pt-0 full-image-banner material-block">
+                                <h4 class="heading mb-4 pb-1">Sectct Flooring Material</h4>
+
+                                  <div class="radio-group row justify-content-center px-3">
+
+                                    <div class="card-block radio selected">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material1.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material2.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material3.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material4.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material5.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> <img src="images/calculator/material6.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-block radio">
+                                        <div class="radio-top-round-icon">
+                                            <div class="fa fa-check"></div>
+                                        </div>
+                                        <div class="radio-image-text-block">
+                                            <div class="pic"> 
+                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
+                                            </div>
+                                            <h5 class="mb-4">Flooring Material Name</h5>
+                                        </div>
+                                    </div>
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                    
+                                </div>
+                                
+
+
+                                <div class="row justify-content-center"> 
+                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+
+                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                </div>
+                            </div>
+                            <!------step5--end--->
 
 
 

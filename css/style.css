@@ -6238,6 +6238,7 @@ border-radius: 8px;
 .calculator-block .full-image-banner .card-block .radio-image-text-block .pic{
   height: 210px;
   padding: 0;
+  background-color: #111111 !important;
 }
 .calculator-block .full-image-banner .card-block .radio-image-text-block .pic img{
   width: auto;
