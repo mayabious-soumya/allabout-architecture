@@ -5857,3 +5857,312 @@ border-radius: 8px;
   padding: 0;
   margin: 5px 0;
 }
+
+
+/*//////2021.08.05////*/
+
+.calculator-main-block{
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: linear-gradient(to right, #65af56, #304e28);
+    background-repeat: no-repeat
+}
+
+.calculator-block{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+.calculator-block .progress {
+    height: 13px;
+    width: 350px;
+    margin: 10px 20px;
+    background-color: #95de85
+}
+
+.calculator-block .progress-bar {
+    background-color: #65af56
+}
+
+.calculator-block .count {
+    width: 350px
+}
+
+.calculator-block .fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+.calculator-block .card {
+    padding-bottom: 20px
+}
+
+.calculator-block .card-header {
+    padding: 20px 60px
+}
+
+.calculator-block .card-body {
+    display: none;
+    padding-left: 55px;
+    padding-right: 55px
+}
+
+.calculator-block .card-body.show {
+    display: block
+}
+
+.calculator-block .yellow-text {
+    color: #FBC02D
+}
+
+.calculator-block .card-block {
+    width: 235px;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 5px !important;
+    background-color: #FAFAFA;
+    margin-bottom: 30px
+}
+
+.calculator-block .radio {
+    display: inline-block;
+    border-radius: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+.calculator-block .radio:hover {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.calculator-block .radio.selected {
+    border: 2px solid #65af56;
+    box-shadow: 0px 8px 16px 0px #EEEEEE;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    filter: grayscale(0%)
+}
+
+.calculator-block .fa-check {
+    color: #65af56;
+    border-radius: 50%;
+    border: 2px solid #65af56;
+    padding: 5px
+}
+
+.calculator-block .fa-circle {
+    color: #FAFAFA;
+    border-radius: 50%;
+    border: 2px solid #BDBDBD;
+    padding: 5px 6.155px
+}
+
+.calculator-block .pic, .calculator-block .pic-0 {
+    height: 90px;
+    width: 130px
+}
+
+.calculator-block .pic {
+    margin-top: 30px;
+    margin-bottom: 20px
+}
+
+.calculator-block .btn-blue {
+    margin-top: 40px;
+    background-color: #65af56;
+    transition: all .2s;
+    color: #fff;
+    width: 28%
+}
+
+.calculator-block .btn-blue:hover {
+    background-color: #000
+}
+
+.calculator-block .btn-secondary {
+    margin-top: 40px;
+    width: 28%
+}
+
+.calculator-block .fa-long-arrow-right {
+    float: right;
+    margin-top: 4px
+}
+
+.calculator-block .fa-long-arrow-left {
+    float: left;
+    margin-top: 4px
+}
+
+.calculator-block select, .calculator-block input, .calculator-block textarea {
+    padding: 8px 15px 8px 15px;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+.calculator-block select:focus, .calculator-block input:focus, .calculator-block textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #FBC02D !important;
+    outline-width: 0
+}
+
+.calculator-block button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+
+
+/*//////*/
+
+.calculator-box{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.calculator-block .card-header{
+  background-color: #65af56;
+}
+
+.calculator-block .card{
+  box-shadow: 0 0.46875rem 2.1875rem rgb(8 10 37 / 3%), 0 0.9375rem 1.40625rem rgb(8 10 37 / 3%), 0 0.25rem 0.53125rem rgb(8 10 37 / 5%), 0 0.125rem 0.1875rem rgb(8 10 37 / 3%);
+  border-width: 0;
+  transition: all .2s;
+  border-radius: 8px !important;
+}
+
+.calculator-block .card-header .title{
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 0 0 4px 0;
+  margin: 0;
+}
+
+.calculator-block .card-header .sub-title{
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.calculator-block .card-header .mobile-nimber{
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+.calculator-block .count{
+  color: #656565;
+}
+
+.calculator-block .count strong{
+  color: #65af56;
+}
+
+.calculator-block .heading {
+  font-weight: bold;
+}
+
+.calculator-block .radio h5{
+  font-weight: bold;
+  color: #0f0f0f;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.calculator-block .radio.selected h5{
+  color: #65af56;
+}
+
+.calculator-block .card-block{
+  background-color: #ffffff;
+  position: relative;
+  padding: 0;
+}
+.calculator-block .card-block .radio-top-round-icon{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 99;
+}
+.calculator-block .card-block .radio-image-text-block{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.calculator-block .card-block .radio-image-text-block .pic{
+  width: 100%;
+  padding: 8px;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-block .card-block .radio-image-text-block .pic img{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.calculator-block .card-block .radio-image-text-block h5{
+  width: 100%;
+  padding: 8px !important;
+  background-color: #fafafa;
+  margin: 0 !important;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

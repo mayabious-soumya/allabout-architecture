@@ -120,7 +120,7 @@
 
 <!---left-bar--->
 <!---<div class="left-sidebar-main" style="<?php echo $bSideBarDisplay;?>" > -->
-<div class="left-sidebar-main">
+<div class="left-sidebar-main" style="<?php echo $bSideBarDisplay;?>" >
   <div class="left-sidebar-box">
 
     <div class="sidebar-header-block">
@@ -448,6 +448,98 @@
                       </div>
                       <div class="search-content-box">
                         <div class="catagorie-accordion-block">
+
+
+                          <!-----deleate--->
+
+                          <!----
+                          <div id="accordion">
+                            <div class="card">
+                              <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                  Item 1
+                                </a>
+                              <div id="collapse-1" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
+                                <div class="card-body">
+
+                                  <div id="accordion-1">
+                                    <div class="card">
+                                      <div class="card-header" id="heading-1-1">
+                                        <h5 class="mb-0">
+                                          <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
+                                            Item 1 > 1
+                                          </a>
+                                        </h5>
+                                      </div>
+                                      <div id="collapse-1-1" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-1-1">
+                                        <div class="card-body">
+
+                                            <div id="accordion-1-1">
+                                              <div class="card">
+                                                <div class="card-header" id="heading-1-1-1">
+                                                  <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1-1" aria-expanded="false" aria-controls="collapse-1-1-1">
+                                                      Item 1 > 1 > 1
+                                                    </a>
+                                                  </h5>
+                                                </div>
+                                                <div id="collapse-1-1-1" class="collapse" data-parent="#accordion-1-1" aria-labelledby="heading-1-1-1">
+                                                  <div class="card-body">
+                                                    Text 1 > 1 > 1
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="card">
+                                                <div class="card-header" id="heading-1-1-2">
+                                                  <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1-2" aria-expanded="false" aria-controls="collapse-1-1-2">
+                                                      Item 1 > 1 > 2
+                                                    </a>
+                                                  </h5>
+                                                </div>
+                                                <div id="collapse-1-1-2" class="collapse" data-parent="#accordion-1-1" aria-labelledby="heading-1-1-2">
+                                                  <div class="card-body">
+                                                    Text 1 > 1 > 2
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="card">
+                                                <div class="card-header" id="heading-1-1-3">
+                                                  <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1-3" aria-expanded="false" aria-controls="collapse-1-1-3">
+                                                      Item 1 > 1 > 3
+                                                    </a>
+                                                  </h5>
+                                                </div>
+                                                <div id="collapse-1-1-3" class="collapse" data-parent="#accordion-1-1" aria-labelledby="heading-1-1-3">
+                                                  <div class="card-body">
+                                                    Text 1 > 1 > 3
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    
+
+
+                                  </div>      
+                                
+                                </div>
+                              </div>
+                            </div>
+
+                            
+                          </div>
+                          ---->
+
+
+                          <!-----deleate--end--->
+
+
+                          <!----
                           
                           <div class="accordion" id="accordionExample">
 
@@ -672,6 +764,7 @@
 
 
                           </div>
+                          ---->
                           
 
                         </div>

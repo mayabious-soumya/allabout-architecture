@@ -18,7 +18,7 @@
     </section>
 
 
-    <section class="calculator-main-block">
+    <section class="insidepage-content-block about-company-main-bkock">
         <div class="container">
           <!--
             <div class="main-titel-block">
@@ -32,36 +32,32 @@
 
               <div class="container-fluid px-1 py-5 mx-auto">
                 <div class="row d-flex justify-content-center">
-                    <div class="calculator-box">
+                    <div class="col-xl-9 col-lg-10 col-md-11">
                         <div class="card rounded-0 b-0">
                             <div class="card-header">
                                 <div class="row d-flex justify-content-between">
-                                    <div class="cal-header-left-block">
-                                        <h5 class="title">Tell Us Little More About Your Requirement?</h5>
-                                        <h6 class="sub-title">Simply Follow Through</h6>
+                                    <div class="">
+                                        <h5 class="yellow-text">Tell Us Little More About Your Requirement?</h5>
+                                        <h6>Simply Follow Through</h6>
                                     </div>
-                                    <div class="cal-header-right-block text-md-center">
-                                        <h5 class="title">Call us</h5>
-                                        <h5 class="mobile-nimber"><span class="fa fa-phone pr-3"></span>123 456 7891</h5>
+                                    <div class="text-md-center">
+                                        <h5 class="yellow-text">Call us</h5>
+                                        <h5><span class="fa fa-phone pr-3"></span>123 456 7891</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-sm-end justify-content-start px-5">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-sm-end justify-content-start px-5">
                                 <div class="count text-center">
-                                    <p class="mb-sm-0 pb-sm-0">
-                                        <strong><span id="cnt">25</span>%</strong> 
-                                        <span>Completed</span>
-                                    </p>
+                                    <p class="mb-sm-0 pb-sm-0"><strong><span id="cnt">25</span>%</strong> <span class="yellow-text">Completed</span></p>
                                 </div>
                             </div>
 
-                            <!------step1----->
-                            <div class="card-body pt-0">
+                            <div class="card-body show pt-0">
                                 <h4 class="heading mb-4 pb-1">What should be done?</h4>
                                 <div class="radio-group row justify-content-between px-3">
                                     <div class="card-block radio selected">
@@ -94,91 +90,51 @@
                                 </div>
                                 <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1">Next<span class="fa fa-long-arrow-right"></span></button> </div>
                             </div>
-                            <!------step1--end--->
 
 
-                            <!------step2----->
-                            <div class="card-body show pt-0">
-                                <h4 class="heading mb-4 pb-1">EASTERN ZONE: Select Your State</h4>
 
+
+                            <div class="card-body pt-0">
+                                <h4 class="heading mb-4 pb-1">Personal details</h4>
                                   <div class="radio-group row justify-content-between px-3">
-
                                     <div class="card-block radio selected">
-                                        <div class="radio-top-round-icon">
+                                        <div class="row justify-content-end d-flex px-3">
                                             <div class="fa fa-check"></div>
                                         </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone1.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">West Bengal West Bengal West Bengal</h5>
+                                        <div class="row justify-content-center d-flex">
+                                            <div class="pic"> <img src="https://i.imgur.com/4uBi6ib.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Create Website</h5>
                                         </div>
                                     </div>
-
                                     <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
+                                        <div class="row justify-content-end d-flex px-3">
+                                            <div class="fa fa-circle"></div>
                                         </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone2.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Bihar</h5>
+                                        <div class="row justify-content-center d-flex">
+                                            <div class="pic"> <img src="https://i.imgur.com/nwy6Wkh.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Website Relaunch</h5>
                                         </div>
                                     </div>
-
-
                                     <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
+                                        <div class="row justify-content-end d-flex px-3">
+                                            <div class="fa fa-circle"></div>
                                         </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone3.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Orissa</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone4.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Chhattisgarh</h5>
+                                        <div class="row justify-content-center d-flex">
+                                            <div class="pic"> <img src="https://i.imgur.com/74Ez7OS.png" class="pic-0"> </div>
+                                            <h5 class="mb-4">Don't Know</h5>
                                         </div>
                                     </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone5.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Jharkhand</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone6.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Eastern UP</h5>
-                                        </div>
-                                    </div>
-
-                                    
                                 </div>
-                                
+                                <!--
+                                 <label class="text-danger mb-3">* Required</label>
+                                <div class="form-group"> <label class="form-control-label">First Name * :</label> <input type="text" id="fname" name="fname" placeholder="" class="form-control" onblur="validate1(1)"> </div>
+                                <div class="form-group"> <label class="form-control-label">Last Name * :</label> <input type="text" id="lname" name="lname" placeholder="" class="form-control" onblur="validate1(2)"> </div>
+                                <div class="form-group"> <label class="form-control-label">Email ID * :</label> <input type="text" id="email" name="email" placeholder="" class="form-control" onblur="validate1(3)"> </div>
+                                <div class="form-group"> <label class="form-control-label">Contact No. * :</label> <input type="text" id="mob" name="mob" placeholder="" class="form-control" onblur="validate1(4)"> </div>-->
 
 
-                                <div class="row justify-content-center"> 
-                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
-
-                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
-                                </div>
+                                <div class="row justify-content-center"> <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button> <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> </div>
                             </div>
-                            <!------step2--end--->
-
-
-
                             <div class="card-body pt-0">
                                 <h4 class="heading mb-4 pb-1">Website details</h4> <label class="text-danger mb-3">* Required</label>
                                 <div class="form-group"> <label class="form-control-label">Company Name :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> </div>
@@ -249,17 +205,196 @@
     <!------calcluter---->
 
     <script type="text/javascript">
-      
+      function validate1(val) {
+v1 = document.getElementById("fname");
+v2 = document.getElementById("lname");
+v3 = document.getElementById("email");
+v4 = document.getElementById("mob");
 
-$('.radio-group .radio').click(function(){
-    $('.selected .fa').removeClass('fa-check');
-    $('.selected .fa').addClass('fa-circle');
-    $('.radio').removeClass('selected');
-    $(this).addClass('selected');
-    $('.selected .fa').removeClass('fa-circle');
-    $('.selected .fa').addClass('fa-check');
+flag1 = false;
+flag2 = false;
+flag3 = false;
+flag4 = false;
+
+if(val>=1 || val==0) {
+if(v1.value == "") {
+v1.style.borderColor = "red";
+flag1 = false;
+}
+else {
+v1.style.borderColor = "green";
+flag1 = true;
+}
+}
+
+if(val>=2 || val==0) {
+if(v2.value == "") {
+v2.style.borderColor = "red";
+flag2 = false;
+}
+else {
+v2.style.borderColor = "green";
+flag2 = true;
+}
+}
+
+if(val>=3 || val==0) {
+if(v3.value == "") {
+v3.style.borderColor = "red";
+flag3 = false;
+}
+else {
+v3.style.borderColor = "green";
+flag3 = true;
+}
+}
+
+if(val>=4 || val==0) {
+if(v4.value == "") {
+v4.style.borderColor = "red";
+flag4 = false;
+}
+else {
+v4.style.borderColor = "green";
+flag4 = true;
+}
+}
+
+flag = flag1 && flag2 && flag3 && flag4;
+
+return flag;
+}
+
+function validate2(val) {
+v3 = document.getElementById("title");
+v4 = document.getElementById("desc");
+
+flag3 = true;
+flag4 = true;
+
+if(val>=3 || val==0) {
+if(v3.value == "") {
+v3.style.borderColor = "red";
+flag3 = false;
+}
+else {
+v3.style.borderColor = "green";
+flag3 = true;
+}
+}
+
+if(val>=4 || val==0) {
+if(v4.value == "") {
+v4.style.borderColor = "red";
+flag4 = false;
+}
+else {
+v4.style.borderColor = "green";
+flag4 = true;
+}
+}
+
+flag = flag3 && flag4;
+
+return flag;
+}
+
+$(document).ready(function(){
+
+var current_fs, next_fs, previous_fs;
+
+var steps = $(".card-body").length;
+var current = 1;
+setProgressBar(current);
+
+$(".next").click(function(){
+
+str1 = "next1";
+str2 = "next2";
+str3 = "next3";
+
+if(!str2.localeCompare($(this).attr('id')) && validate1(0) == true) {
+val2 = true;
+}
+else {
+val2 = false;
+}
+
+if(!str3.localeCompare($(this).attr('id')) && validate2(0) == true) {
+val3 = true;
+}
+else {
+val3 = false;
+}
+
+if((!str1.localeCompare($(this).attr('id'))) || (!str2.localeCompare($(this).attr('id')) && val2 == true) || (!str3.localeCompare($(this).attr('id')) && val3 == true)) {
+current_fs = $(this).parent().parent();
+next_fs = $(this).parent().parent().next();
+
+$(current_fs).removeClass("show");
+$(next_fs).addClass("show");
+
+current_fs.animate({}, {
+step: function() {
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
 });
 
+next_fs.css({
+'display': 'block'
+});
+}
+});
+setProgressBar(++current);
+var c = document.getElementById('cnt').textContent;
+document.getElementById('cnt').textContent = Number(c) + 25;
+}
+});
+
+$(".prev").click(function(){
+
+current_fs = $(this).parent().parent();
+previous_fs = $(this).parent().parent().prev();
+
+$(current_fs).removeClass("show");
+$(previous_fs).addClass("show");
+
+current_fs.animate({}, {
+step: function() {
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+
+previous_fs.css({
+'display': 'block'
+});
+}
+});
+setProgressBar(--current);
+var c = document.getElementById('cnt').textContent;
+document.getElementById('cnt').textContent = Number(c) - 25;
+});
+
+function setProgressBar(curStep){
+var percent = parseFloat(100 / steps) * curStep;
+percent = percent.toFixed();
+$(".progress-bar").css("width",percent+"%");
+}
+
+$('.radio-group .radio').click(function(){
+$('.selected .fa').removeClass('fa-check');
+$('.selected .fa').addClass('fa-circle');
+$('.radio').removeClass('selected');
+$(this).addClass('selected');
+$('.selected .fa').removeClass('fa-circle');
+$('.selected .fa').addClass('fa-check');
+});
+
+});
     </script>
     
     <!-----calcluter--->
