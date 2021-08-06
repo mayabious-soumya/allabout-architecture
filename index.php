@@ -201,9 +201,11 @@
               <h2>From the<br><span>Desk of ceo</span></h2>
               <hr>
               <div class="clearfix"></div>
-              <p>There are many variations of passages of Lorem Ipsum 
-                available, but the majority have...</p>
-                <a href="#">Know More</a>
+              <p>Life Is but a fleeting dream <br>
+              In the continuum of time<br>
+              We may be here today gone tomorrow<br>
+              But our legacy lives along...</p>
+                <a href="desk-of-ceo.php">Know More</a>
           </div>
           <div class="box2">
               <img src="images/from-desk.jpg" class="img-fluid">
