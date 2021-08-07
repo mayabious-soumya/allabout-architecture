@@ -5869,6 +5869,11 @@ border-radius: 8px;
     background-repeat: no-repeat
 }
 
+.calculator-main-block .container {
+    width: 90% !important;
+    max-width: 1130px !important;
+}
+
 .calculator-block{
   width: 100%;
   padding: 0;
