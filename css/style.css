@@ -507,7 +507,7 @@ body {
 .ceowrap .box1 p {
   color: #232323;
   font-size: 15px;
-  line-height: 32px;
+  line-height: 26px;
 }
 .ceowrap .box1 a {
   background: #000;
@@ -551,7 +551,7 @@ body {
 .ceowrap .box3 p {
   color: #232323;
   font-size: 15px;
-  line-height: 32px;
+  line-height: 26px;
 }
 .ceowrap .box3 a {
   background: #000;
@@ -6455,4 +6455,100 @@ border-radius: 8px;
   line-height: 26px;
   text-align: justify;
   text-justify: inter-word;
+}
+
+
+/*////////*/
+
+.whatwedo-main-block .main-header{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px
+}
+
+.whatwedo-main-block .main-header .header-text{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.home-whatwedo-block{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.home-whatwedo-block .whatwedo-box{
+  width: 100%;
+  padding: 15px 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.home-whatwedo-block .whatwedo-box .whatwedo-image-block{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 250px;
+}
+.home-whatwedo-block .whatwedo-box .whatwedo-image-block img{
+  max-height: 197px;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+.home-whatwedo-block .whatwedo-box .whatwedo-text-block{
+  width: 100%;
+  padding: 0 0 0 10px;
+  margin: 0;
+  border: none;
+  outline: none;
+  max-width: 380px;
+}
+
+.home-whatwedo-block .whatwedo-box .whatwedo-text-block .header{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  color: #414042;
+}
+
+.home-whatwedo-block .whatwedo-box .whatwedo-text-block p{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #414042;
+  font-size: 15px;
+  line-height: 26px;
 }

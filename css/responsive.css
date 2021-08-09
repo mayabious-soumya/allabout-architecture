@@ -229,3 +229,21 @@
 
 
 }
+
+
+/*//////*/
+
+@media only screen and (max-width: 992px) {
+  .home-whatwedo-block .whatwedo-box{
+    flex-wrap: wrap;
+  }
+  .home-whatwedo-block .whatwedo-box .whatwedo-image-block{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .home-whatwedo-block .whatwedo-box .whatwedo-text-block{
+    max-width: 100%;
+    padding: 0;
+  }
+}

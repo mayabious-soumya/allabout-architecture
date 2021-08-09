@@ -99,9 +99,73 @@
       </div>
 
 
-      <section class="home-wrap1">
+      <section class="home-wrap1 whatwedo-main-block">
         <div class="container">
+          <div class="main-header">
+            <div class="header-text">
+              <h2>What <span>We Do?</span></h2>
+              <hr>
+            </div>
+          </div>
+          <div class="home-whatwedo-block">
             <div class="row">
+
+              <div class="col-sm-6">
+                <div class="whatwedo-box">
+                  <div class="whatwedo-image-block">
+                    <img src="images/whatwedo1.png" alt="whatwedo">
+                  </div>
+                  <div class="whatwedo-text-block">
+                    <h4 class="header">GIVE A COLLABORATIVE PLATFORM</h4>
+                    <p>Sustainability in the Construction Industry is still at a nascent stage- And Individuals are working to make a difference. This platform will help you to take your voice to a wider community. Together we can make a stronger difference.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="whatwedo-box">
+                  <div class="whatwedo-image-block">
+                    <img src="images/whatwedo2.png" alt="whatwedo">
+                  </div>
+                  <div class="whatwedo-text-block">
+                    <h4 class="header">SAVE TIME ON RESEARCH</h4>
+                    <p>Every time you design, we help you choose the most optimum product for your design. You design and we do the research for you.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="col-sm-6">
+                <div class="whatwedo-box">
+                  <div class="whatwedo-image-block">
+                    <img src="images/whatwedo3.png" alt="whatwedo">
+                  </div>
+                  <div class="whatwedo-text-block">
+                    <h4 class="header">INTRODUCE NEW IDEAS</h4>
+                    <p>Circular Economy, Carbon Foot Print Design thinking are few of the things among many that will help you and Your Business Move toward saving cost at the same time move toward building sustainable communities.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="whatwedo-box">
+                  <div class="whatwedo-image-block">
+                    <img src="images/whatwedo4.png" alt="whatwedo">
+                  </div>
+                  <div class="whatwedo-text-block">
+                    <h4 class="header">INSPIRE TO RETHINK</h4>
+                    <p>You can collaborate with us and spread information about your product/design principle and spread across your information to a wide audience thus increasing the awareness of your product and increasing its demand.</p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <!---
+            <div class="row">
+
                 <div class="col-sm-4">
                     <img src="images/infographics.jpg" class="img-fluid home-wrap1-pic1">
                 </div>
@@ -135,7 +199,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                
+            </div>--->
+
         </div>
       </section>
 
