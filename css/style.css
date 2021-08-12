@@ -5925,7 +5925,7 @@ border-radius: 8px;
 }
 
 .calculator-block .card-block {
-    width: 235px;
+    width: 310px;
     border: 1px solid lightgrey;
     padding: 20px;
     border-radius: 5px !important;
@@ -5950,7 +5950,9 @@ border-radius: 8px;
 .calculator-block .radio:hover {
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
 }
-
+.calculator-block .radio{
+  background-color: #fafafa !important;
+}
 .calculator-block .radio.selected {
     border: 2px solid #65af56;
     box-shadow: 0px 8px 16px 0px #EEEEEE;
@@ -5958,7 +5960,8 @@ border-radius: 8px;
     -moz-filter: grayscale(0%);
     -o-filter: grayscale(0%);
     -ms-filter: grayscale(0%);
-    filter: grayscale(0%)
+    filter: grayscale(0%);
+    background-color: #65af56 !important;
 }
 
 .calculator-block .fa-check {
@@ -5970,7 +5973,7 @@ border-radius: 8px;
 }
 
 .calculator-block .fa-circle {
-    color: #FAFAFA;
+    color: transparent;
     border-radius: 50%;
     border: 2px solid #BDBDBD;
     padding: 5px 6.155px
@@ -6127,11 +6130,16 @@ border-radius: 8px;
 }
 .calculator-block .card-block .radio-image-text-block{
   width: 100%;
-  padding: 0;
+  padding: 8px;
   margin: 0;
   border: none;
   outline: none;
   text-decoration: none;
+  background-color: #fafafa;
+}
+.calculator-block .radio.selected .radio-image-text-block {
+    background-color: #65af56 !important;
+    color: #ffffff !important;
 }
 
 .calculator-block .card-block .radio-image-text-block .pic{
@@ -6161,8 +6169,7 @@ border-radius: 8px;
 .calculator-block .card-block .radio-image-text-block h5{
   width: 100%;
   font-size: 16px;
-  padding: 8px !important;
-  background-color: #fafafa;
+  padding: 0!important;
   margin: 0 !important;
   border: none;
   outline: none;
@@ -6175,10 +6182,29 @@ border-radius: 8px;
     overflow: hidden;
 }
 
+
+
 .calculator-block .radio.selected .radio-image-text-block h5{
-  background-color: #65af56;
   color: #ffffff;
 }
+
+.calculator-block .card-block .radio-image-text-block p{
+  width: 100%;
+  font-size: 12px;
+  padding: 8px 0 0 0 !important;
+  margin: 0 !important;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  line-height: normal;
+  text-align: left;
+}
+
+.calculator-block .radio.selected .radio-image-text-block p{
+  color: #ffffff;
+}
+
 .calculator-block .card-block .radio-image-text-block .small-text{
   width: 100%;
   font-size: 12px;
@@ -6214,7 +6240,7 @@ border-radius: 8px;
 }
 
 .calculator-block .noimage-only-text .radio .radio-top-round-icon{
-  position: static;
+  position: absolute;
   margin-right: 10px;
 }
 
@@ -6241,7 +6267,7 @@ border-radius: 8px;
 
 /*///////*/
 .calculator-block .full-image-banner .card-block .radio-image-text-block .pic{
-  height: 210px;
+  height: 250px;
   padding: 0;
   background-color: #111111 !important;
 }

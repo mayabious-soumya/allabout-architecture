@@ -119,7 +119,7 @@
 
 
 <!---left-bar--->
-<<div class="left-sidebar-main" style="<?php echo $bSideBarDisplay;?>" >
+<div class="left-sidebar-main" style="<?php echo $bSideBarDisplay;?>" >
   <div class="left-sidebar-box">
 
     <div class="sidebar-header-block">

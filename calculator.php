@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +14,80 @@
   </head>
   <body>
      
-    <?php include("include/header.php");?> 
+    <?php include("include/header.php");
+	
+	$strSql = "
+		select  * 
+		  from  tblzone
+		 where  zone_status = 'A'
+	  order by  zone_name
+	";
+	$dtZone = getDatatable($strSql);
+	
+	$strSql = "
+		select state_id, zone_id, state_name, 
+		case
+		  when trim(ifnull(state_image,'')) = '' then 'default_state_image.png'
+		  else trim(ifnull(state_image,''))
+		end state_image
+		from tblstate
+		where state_status = 'A'
+	";
+	$dtState = getDatatable($strSql);
+	
+	$strSql = "
+		select  id, ifnull(cat_parent_id,0) cat_parent_id, cat_name,
+				case
+				  when trim(ifnull(cat_image,'')) = '' then 'default_cat_image.png'
+				  else trim(ifnull(cat_image,''))
+				end cat_image
+		  from  tblcategories
+		 where  cat_status = 'A'
+		   and  cat_lvl = 1
+	  order by  cat_order
+	";
+	$dtCat1 = getDatatable($strSql);
+	
+	$strSql = "
+		select  id, ifnull(cat_parent_id,0) cat_parent_id, cat_name,
+				case
+				  when trim(ifnull(cat_image,'')) = '' then 'default_cat_image.png'
+				  else trim(ifnull(cat_image,''))
+				end cat_image
+		  from  tblcategories
+		 where  cat_status = 'A'
+		   and  cat_lvl = 2
+	  order by  cat_order
+	";
+	$dtCat2 = getDatatable($strSql);
+	
+	$strSql = "
+		select  id, ifnull(cat_parent_id,0) cat_parent_id, cat_name,
+				case
+				  when trim(ifnull(cat_image,'')) = '' then 'default_cat_image.png'
+				  else trim(ifnull(cat_image,''))
+				end cat_image
+		  from  tblcategories
+		 where  cat_status = 'A'
+		   and  cat_lvl = 3
+	  order by  cat_order
+	";
+	$dtCat3 = getDatatable($strSql);
+	
+	$strSql = "
+			select  pr.product_id, pr.product_name, pr.product_picture, pr.product_price, cat.id,
+					pr.product_length, pr.product_width, pr.product_depth
+			  from  tblproduct pr
+		inner join  tblproduct_category pcat on pr.product_id = pcat.product_id
+			   and  pr.product_status = 'A'
+		inner join  tblcategories cat on pcat.cat_id = cat.id
+			   and  cat.cat_status = 'A'
+		  order by  pr.product_name
+	";
+	$dtProduct = getDatatable($strSql);
+	
+	
+	?> 
 
     <section class="inside-page-banner">
         <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
@@ -61,11 +137,28 @@
                             </div>
 
                             <!------step1----->
-                            <div class="card-body show pt-0 noimage-only-text select-zone-block">
+                            <div class="card-body show pt-0 full-image-banner select-zone-block" id="divContainerZone" >
                                 <h4 class="heading mb-4 pb-1">Select Zone</h4>
 
-                                <div class="radio-group row justify-content-center px-3">
-
+                                <div class="radio-group radio-group-zone row justify-content-center px-3">
+									<?php
+									for($iRow=0;$iRow<=count($dtZone)-1;$iRow++)
+									{
+										echo '
+										<div class="card-block radio zone_name" data-zone_id="'.$dtZone[$iRow]['zone_id'].'" data-zone_name="'.$dtZone[$iRow]['zone_name'].'" >
+											<div class="radio-top-round-icon">
+												<div class="fa fa-circle"></div>
+											</div>
+											<div class="radio-image-text-block">
+												<div class="pic"> <img src="admin/zone_image/'.$dtZone[$iRow]['zone_image'].'" class="pic-0"> </div>
+												<h5 class="mb-4">'.$dtZone[$iRow]['zone_name'].'</h5>
+												<p>'.$dtZone[$iRow]['zone_description'].'</p>
+											</div>
+										</div>
+										';
+									}
+									?>
+									<!--
                                     <div class="card-block radio selected">
                                         <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
@@ -74,132 +167,52 @@
                                             <h5 class="mb-4">EASTERN ZONE</h5>
                                         </div>
                                     </div>
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-circle"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <h5 class="mb-4">WESTERN ZONE</h5>
-                                        </div>
-                                    </div>
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-circle"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <h5 class="mb-4">SOUTHERN ZONE</h5>
-                                            <h6 class="small-text">UNION TERRITORIES</h6>
-                                        </div>
-                                    </div>
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-circle"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <h5 class="mb-4">SOUTHERN ZONE</h5>
-                                        </div>
-                                    </div>
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-circle"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <h5 class="mb-4">NORTHERN ZONE</h5>
-                                        </div>
-                                    </div>
+                                    -->
+									
+									
                                 </div>
-                                <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1">Next<span class="fa fa-long-arrow-right"></span></button> </div>
+                                <div class="row justify-content-center"> <button class="btn btn-blue next mx-2 btnNext" data-action="zone" id="next1">Next<span class="fa fa-long-arrow-right"></span></button> </div>
                             </div>
                             <!------step1--end--->
 
 
                             <!------step2----->
-                            <div class="card-body pt-0 select-your-state">
-                                <h4 class="heading mb-4 pb-1">EASTERN ZONE: Select Your State</h4>
+                            <div class="card-body pt-0 full-image-banner select-your-state" id="divContainerState" >
+                                <h4 class="heading mb-4 pb-1" id="lblSelectedZone"></h4>
 
-                                  <div class="radio-group row justify-content-center px-3">
-
-                                    <div class="card-block radio selected">
+                                  <div class="radio-group-state row justify-content-center px-3" id="divStateList">
+								  
+									<!--
+                                    <div class="card-block radio">
                                         <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
+                                            <div class="fa fa-circle"></div>
                                         </div>
                                         <div class="radio-image-text-block">
                                             <div class="pic"> <img src="images/calculator/eastern-zone1.png" class="pic-0"> </div>
                                             <h5 class="mb-4">West Bengal West Bengal West Bengal West Bengal West Bengal West Bengal</h5>
                                         </div>
                                     </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone2.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Bihar</h5>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone3.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Orissa</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone4.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Chhattisgarh</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone5.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Jharkhand</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/eastern-zone6.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Eastern UP</h5>
-                                        </div>
-                                    </div>
-
-                                    
+									-->
                                 </div>
                                 
 
 
                                 <div class="row justify-content-center"> 
-                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+                                    <button class="btn btn-secondary prev mx-2 btnPrevious" data-action="state" ><span class="fa fa-long-arrow-left"></span>Back</button>
 
-                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                    <button class="btn btn-blue next mx-2 btnNext" data-action="state" id="next2" >Next<span class="fa fa-long-arrow-right"></span></button> 
                                 </div>
                             </div>
                             <!------step2--end--->
 
 
                             <!------step3----->
-                            <div class="card-body pt-0 room-type-block">
-                                <h4 class="heading mb-4 pb-1">Select Room Type</h4>
+                            <div class="card-body pt-0 full-image-banner room-type-block" id="divContainerCat1" >
+                                <h4 class="heading mb-4 pb-1">Select Type</h4>
 
-                                  <div class="radio-group row justify-content-center px-3">
+                                  <div class="radio-group-cat1 row justify-content-center px-3" id="divCat1List" >
 
+								  <!--
                                     <div class="card-block radio selected">
                                         <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
@@ -209,7 +222,7 @@
                                             <h5 class="mb-4">Bed Room</h5>
                                         </div>
                                     </div>
-
+									
                                     <div class="card-block radio">
                                         <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
@@ -219,39 +232,29 @@
                                             <h5 class="mb-4">Living Room</h5>
                                         </div>
                                     </div>
+									-->
 
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/room-type-3.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Bathroom</h5>
-                                        </div>
-                                    </div>
-
-                                    
-                                    
                                 </div>
                                 
 
 
                                 <div class="row justify-content-center"> 
-                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+                                    <button class="btn btn-secondary prev mx-2 btnPrevious" data-action="cat1" ><span class="fa fa-long-arrow-left"></span>Back</button>
 
-                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                    <button class="btn btn-blue next mx-2 btnNext" data-action="cat1" id="next2" >Next<span class="fa fa-long-arrow-right"></span></button> 
                                 </div>
                             </div>
                             <!------step3--end--->
 
 
                             <!------step4----->
-                            <div class="card-body pt-0 full-image-banner parameters-block">
-                                <h4 class="heading mb-4 pb-1">Room Type Parameters</h4>
+                            <div class="card-body pt-0 full-image-banner parameters-block" id="divContainerCat2">
+                                <h4 class="heading mb-4 pb-1">Select Location</h4>
 
-                                  <div class="radio-group row justify-content-center px-3">
+                                  <div class="radio-group-cat2 row justify-content-center px-3" id="divCat2List">
 
-                                    <div class="card-block radio selected">
+									<!--
+                                    <div class="card-block radio">
                                         <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
                                         </div>
@@ -260,70 +263,27 @@
                                             <h5 class="mb-4">Flooring</h5>
                                         </div>
                                     </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/room-type-parameters2.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Wall</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/room-type-parameters3.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Ceiling</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/room-type-parameters4.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Doors</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/room-type-parameters5.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Windows</h5>
-                                        </div>
-                                    </div>
-
-                                    
-
-                                    
+									-->
                                     
                                 </div>
                                 
 
 
                                 <div class="row justify-content-center"> 
-                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+                                    <button class="btn btn-secondary prev mx-2 btnPrevious" data-action="cat2" ><span class="fa fa-long-arrow-left"></span>Back</button>
 
-                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                    <button class="btn btn-blue next mx-2 btnNext" data-action="cat2" id="next2" >Next<span class="fa fa-long-arrow-right"></span></button> 
                                 </div>
                             </div>
                             <!------step4--end--->
 
 
                             <!------step5----->
-                            <div class="card-body pt-0 full-image-banner material-block">
-                                <h4 class="heading mb-4 pb-1">Sectct Flooring Material</h4>
+                            <div class="card-body pt-0 full-image-banner material-block" id="divContainerCat3">
+                                <h4 class="heading mb-4 pb-1">Sectct Material</h4>
 
-                                  <div class="radio-group row justify-content-center px-3">
-
+                                  <div class="radio-group-cat3 row justify-content-center px-3" id="divCat3List">
+									<!--
                                     <div class="card-block radio selected">
                                         <div class="radio-top-round-icon">
                                             <div class="fa fa-check"></div>
@@ -333,226 +293,76 @@
                                             <h5 class="mb-4">Flooring Material Name</h5>
                                         </div>
                                     </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/material2.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/material3.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/material4.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/material5.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> <img src="images/calculator/material6.png" class="pic-0"> </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-block radio">
-                                        <div class="radio-top-round-icon">
-                                            <div class="fa fa-check"></div>
-                                        </div>
-                                        <div class="radio-image-text-block">
-                                            <div class="pic"> 
-                                                <!--<img src="images/calculator/material6.png" class="pic-0">-->
-                                            </div>
-                                            <h5 class="mb-4">Flooring Material Name</h5>
-                                        </div>
-                                    </div>
-
-
-                                    
-
-                                    
-
-                                    
+									-->
                                     
                                 </div>
                                 
 
 
                                 <div class="row justify-content-center"> 
-                                    <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button>
+                                    <button class="btn btn-secondary prev mx-2 btnPrevious" data-action="cat3" ><span class="fa fa-long-arrow-left"></span>Back</button>
 
-                                    <button class="btn btn-blue next mx-2" id="next2" onclick="validate1(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+                                    <button class="btn btn-blue next mx-2 btnNext" data-action="cat3" id="next2" >Next<span class="fa fa-long-arrow-right"></span></button> 
                                 </div>
                             </div>
                             <!------step5--end--->
 
 
                             <!------step6----->
-                            <div class="card-body pt-0">
-                                <h4 class="heading mb-4 pb-1">Material Details</h4> 
+                            <div class="card-body pt-0" id="divContainerProduct" >
+                                <h4 class="heading mb-4 pb-1">Select Product</h4> 
                                 <!--<label class="text-danger mb-3">* Required</label>-->
 
                                 <div class="calculator-image-form-box">
                                     <div class="calculator-left-image-box">
-                                        <img src="images/calculator/metrial-details-image.png" alt="">
+                                        <img id="imgProduct" src="admin/uploads/product/default_cal_product_image.png" alt="">
                                     </div>
                                     <div class="calculator-form-details-box">
+										<div class="header-text"> Select Product </div>
+										<div class="form-block">
+											<div class="calculator-form-box">
+                                                <label>Product Name:</label>
+                                                <select class="form-control" id="cboProduct" onChange="loadProduct()" >
+													<option value="0" >Select Product</option>
+                                                </select>
+                                            </div>
+										</div>
                                         <div class="header-text"> Material area </div>
                                         <div class="form-block">
 
                                             <div class="calculator-form-box">
                                                 <label>Length:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_length" name="product_length" readonly class="form-control" type="text" placeholder="Enter Valu">
+												
                                                 <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
+                                                  <option >ft</option>
                                                 </select>
+												
                                             </div>
 
                                             <div class="calculator-form-box">
                                                 <label>Width:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_width" name="product_width" readonly class="form-control" type="text" placeholder="Enter Valu">
+												
                                                 <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
+                                                  <option >ft</option>
                                                 </select>
+												
                                             </div>
 
                                             <div class="calculator-form-box">
                                                 <label>Depth:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_depth" name="product_depth" readonly class="form-control" type="text" placeholder="Enter Valu">
+												
                                                 <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
+                                                  <option >ft</option>
                                                 </select>
+												
                                             </div>
 
                                             <div class="calculator-form-box">
                                                 <label>Price per unit of mass:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_price" name="product_price" class="form-control" type="text" placeholder="0" readonly>
                                                 
                                             </div>
 
@@ -575,43 +385,28 @@
                                         <div class="form-block">
 
                                             <div class="calculator-form-box">
-                                                <label>Width:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <label>Length:</label>
+                                                <input id="usr_product_length" name="usr_product_length" class="form-control" type="text" placeholder="Enter Valu">
                                                 <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
+                                                  <option >ft</option>
+                                                </select>
+                                            </div>
+											
+											<div class="calculator-form-box">
+                                                <label>Width:</label>
+                                                <input id="usr_product_width" name="usr_product_width" class="form-control" type="text" placeholder="Enter Valu">
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                  <option >ft</option>
                                                 </select>
                                             </div>
 
                                             <div class="calculator-form-box">
                                                 <label>Depth:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="usr_product_depth" name="usr_product_depth" class="form-control" type="text" placeholder="Enter Valu">
                                                 <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
+                                                  <option >ft</option>
                                                 </select>
                                             </div>
-
-                                            <div class="calculator-form-box">
-                                                <label>Height:</label>
-                                                <input class="form-control" type="text" placeholder="Enter Valu">
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                  <option>in</option>
-                                                  <option>ft</option>
-                                                  <option>yd</option>
-                                                  <option>cm</option>
-                                                  <option>m</option>
-                                                </select>
-                                            </div>
-
-                                            
-
 
                                         </div>
 
@@ -621,23 +416,26 @@
 
 
                                 
-                                <div class="row justify-content-center"> <button class="btn btn-secondary prev mx-2"><span class="fa fa-long-arrow-left"></span>Back</button> <button class="btn btn-blue next mx-2" id="next3" onclick="validate2(0)">Next<span class="fa fa-long-arrow-right"></span></button> </div>
+                                <div class="row justify-content-center"> 
+								<button class="btn btn-secondary prev mx-2 btnPrevious" data-action="product" ><span class="fa fa-long-arrow-left"></span>Back</button> 
+								<button class="btn btn-blue next mx-2 btnNext" data-action="product" id="next3" onclick="validate2(0)">Next<span class="fa fa-long-arrow-right"></span></button> 
+								</div>
                             </div>
                             <!------step6----->
 
                             <!------step7--last--->
-                            <div class="card-body pt-0 calculate-result-block">
+                            <div class="card-body pt-0 calculate-result-block" id="divContainerCalculation" >
                                 <h4 class="heading mb-4 pb-1">Your Calculate Result</h4>
                                 <div class="row justify-content-start px-3">
                                     <div class="calculate-result-box">
                                         <div class="result-details">
-                                            <p>Unit Price : <b>350 .Rs</b> </p>
+                                            <p>Unit Price : <b id="spanUnitPrice"></b> </p>
 
-                                            <p>room square feet calculator: <b>1200 sft</b></p>
+                                            <p>Square feet calculator: <b id="spanSquareFeetCalculator"></b></p>
 
-                                            <p>Quantity Required : <b>70pc</b> </p>
+                                            <p>Quantity Required : <b id="spanQuantityRequired"></b> </p>
                                         </div>
-                                        <div class="total-coust">Total Cost: <b>24,500 .Rs</b></div>
+                                        <div class="total-coust"  >Total Cost: <b id="spanTotalCost"></b></div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center"> <img src="images/calculator/result.gif" class="check"> </div>
@@ -690,16 +488,471 @@
     <!------calcluter---->
 
     <script type="text/javascript">
+	
+		var arr_state = [ 
+		<?php
+		$strComma = '';
+		for($iRow=0;$iRow<=count($dtState)-1;$iRow++)
+		{
+			echo $strComma.'{"state_id":"'.$dtState[$iRow]['state_id'].'","zone_id":"'.$dtState[$iRow]['zone_id'].'","state_name":"'.$dtState[$iRow]['state_name'].'","state_image":"'.$dtState[$iRow]['state_image'].'"}';
+			$strComma = ',';
+		}
+		?>
+		];
+		
+		var arr_cat1 = [ 
+		<?php
+		$strComma = '';
+		for($iRow=0;$iRow<=count($dtCat1)-1;$iRow++)
+		{
+			echo $strComma.'{"id":"'.$dtCat1[$iRow]['id'].'","cat_parent_id":"'.$dtCat1[$iRow]['cat_parent_id'].'","cat_name":"'.$dtCat1[$iRow]['cat_name'].'","cat_image":"'.$dtCat1[$iRow]['cat_image'].'"}';
+			$strComma = ',';
+		}
+		?>
+		];
+		
+		var arr_cat2 = [ 
+		<?php
+		$strComma = '';
+		for($iRow=0;$iRow<=count($dtCat2)-1;$iRow++)
+		{
+			echo $strComma.'{"id":"'.$dtCat2[$iRow]['id'].'","cat_parent_id":"'.$dtCat2[$iRow]['cat_parent_id'].'","cat_name":"'.$dtCat2[$iRow]['cat_name'].'","cat_image":"'.$dtCat2[$iRow]['cat_image'].'"}';
+			$strComma = ',';
+		}
+		?>
+		];
+		
+		var arr_cat3 = [ 
+		<?php
+		$strComma = '';
+		for($iRow=0;$iRow<=count($dtCat3)-1;$iRow++)
+		{
+			echo $strComma.'{"id":"'.$dtCat3[$iRow]['id'].'","cat_parent_id":"'.$dtCat3[$iRow]['cat_parent_id'].'","cat_name":"'.$dtCat3[$iRow]['cat_name'].'","cat_image":"'.$dtCat3[$iRow]['cat_image'].'"}';
+			$strComma = ',';
+		}
+		?>
+		];
+		
+		var arr_product = [ 
+		<?php
+		$strComma = '';
+		for($iRow=0;$iRow<=count($dtProduct)-1;$iRow++)
+		{
+			echo $strComma.'{"product_id":"'.$dtProduct[$iRow]['product_id'].'","cat_id":"'.$dtProduct[$iRow]['id'].'","product_name":"'.$dtProduct[$iRow]['product_name'].'","product_picture":"'.$dtProduct[$iRow]['product_picture'].'","product_price":"'.$dtProduct[$iRow]['product_price'].'","product_length":"'.$dtProduct[$iRow]['product_length'].'","product_width":"'.$dtProduct[$iRow]['product_width'].'","product_depth":"'.$dtProduct[$iRow]['product_depth'].'"}';
+			$strComma = ',';
+		}
+		?>
+		];
       
-
-$('.radio-group .radio').click(function(){
-    $('.selected .fa').removeClass('fa-check');
-    $('.selected .fa').addClass('fa-circle');
-    $('.radio').removeClass('selected');
-    $(this).addClass('selected');
-    $('.selected .fa').removeClass('fa-circle');
-    $('.selected .fa').addClass('fa-check');
-});
+		var zone_id = 0;
+		var zone_name = '';
+		var state_id = 0;
+		var cat_id1 = 0;
+		var cat_id2 = 0;
+		var cat_id3 = 0;
+		var strDesign = '';
+		
+		var product_id = 0;
+		var product_price = 0;
+		var product_length = 0;
+		var product_width = 0;
+		var product_depth = 0;
+		var usr_product_length = 0;
+		var usr_product_width = 0;
+		var usr_product_depth = 0;
+		var iTotalNoProduct = 0;
+		
+		/*
+		jQuery('.radio-group .radio').click(function(){
+			$('.selected .fa').removeClass('fa-check');
+			$('.selected .fa').addClass('fa-circle');
+			$('.radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.selected .fa').removeClass('fa-circle');
+			$('.selected .fa').addClass('fa-check');
+		});
+		*/
+		
+		jQuery(document).on('click','.radio-group-zone .radio',function(){
+			$('.radio-group-zone .selected .fa').removeClass('fa-check');
+			$('.radio-group-zone .selected .fa').addClass('fa-circle');
+			$('.radio-group-zone .radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.radio-group-zone .selected .fa').removeClass('fa-circle');
+			$('.radio-group-zone .selected .fa').addClass('fa-check');
+		});
+		
+		jQuery(document).on('click','.radio-group-state .radio',function(){
+			$('.radio-group-state .selected .fa').removeClass('fa-check');
+			$('.radio-group-state .selected .fa').addClass('fa-circle');
+			$('.radio-group-state .radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.radio-group-state .selected .fa').removeClass('fa-circle');
+			$('.radio-group-state .selected .fa').addClass('fa-check');
+		});
+		
+		jQuery(document).on('click','.radio-group-cat1 .radio',function(){
+			$('.radio-group-cat1 .selected .fa').removeClass('fa-check');
+			$('.radio-group-cat1 .selected .fa').addClass('fa-circle');
+			$('.radio-group-cat1 .radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.radio-group-cat1 .selected .fa').removeClass('fa-circle');
+			$('.radio-group-cat1 .selected .fa').addClass('fa-check');
+		});
+		
+		jQuery(document).on('click','.radio-group-cat2 .radio',function(){
+			$('.radio-group-cat2 .selected .fa').removeClass('fa-check');
+			$('.radio-group-cat2 .selected .fa').addClass('fa-circle');
+			$('.radio-group-cat2 .radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.radio-group-cat2 .selected .fa').removeClass('fa-circle');
+			$('.radio-group-cat2 .selected .fa').addClass('fa-check');
+		});
+		
+		jQuery(document).on('click','.radio-group-cat3 .radio',function(){
+			$('.radio-group-cat3 .selected .fa').removeClass('fa-check');
+			$('.radio-group-cat3 .selected .fa').addClass('fa-circle');
+			$('.radio-group-cat3 .radio').removeClass('selected');
+			$(this).addClass('selected');
+			$('.radio-group-cat3 .selected .fa').removeClass('fa-circle');
+			$('.radio-group-cat3 .selected .fa').addClass('fa-check');
+		});
+		
+		jQuery(document).on('click','.zone_name',function(){
+			zone_id = jQuery(this).data('zone_id');
+			zone_name = jQuery(this).data('zone_name');
+		});
+		
+		jQuery(document).on('click','.state_name',function(){
+			state_id = jQuery(this).data('state_id');
+		});
+		
+		jQuery(document).on('click','.cat_name1',function(){
+			cat_id1 = jQuery(this).data('cat_id1');
+		});
+		
+		jQuery(document).on('click','.cat_name2',function(){
+			cat_id2 = jQuery(this).data('cat_id2');
+		});
+		
+		jQuery(document).on('click','.cat_name3',function(){
+			cat_id3 = jQuery(this).data('cat_id3');
+			console.log(cat_id3);
+		});
+		
+		jQuery(document).on('click','.btnNext',function(){
+			
+			if(jQuery(this).data('action')=='zone')
+			{
+				if(zone_id > 0)
+				{
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerState').addClass('show');
+					
+					jQuery('#lblSelectedZone').html(zone_name+': Select Your State');
+					
+					strDesign = '';
+					for(iRow=0;iRow<=arr_state.length-1;iRow++)
+					{
+						if(arr_state[iRow]['zone_id']==zone_id)
+						{
+							strDesign += '<div class="card-block radio state_name" data-state_id="'+arr_state[iRow]['state_id']+'" >';
+							strDesign += '	<div class="radio-top-round-icon">';
+							strDesign += '		<div class="fa fa-circle"></div>';
+							strDesign += '	</div>';
+							strDesign += '	<div class="radio-image-text-block">';
+							strDesign += '		<div class="pic"> <img src="admin/state_image/'+arr_state[iRow]['state_image']+'" class="pic-0"> </div>';
+							strDesign += '		<h5 class="mb-4">'+arr_state[iRow]['state_name']+'</h5>';
+							strDesign += '	</div>';
+							strDesign += '</div>';
+						}
+						
+					}
+					state_id = 0;
+					jQuery('#divStateList').html(strDesign);
+				}
+				else
+				{
+					alert('Please Select Zone');
+				}
+			}
+			else if(jQuery(this).data('action')=='state')
+			{
+				if(state_id > 0)
+				{
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerCat1').addClass('show');
+					
+					strDesign = '';
+					for(iRow=0;iRow<=arr_cat1.length-1;iRow++)
+					{
+						strDesign += '<div class="card-block radio cat_name1" data-cat_id1="'+arr_cat1[iRow]['id']+'" >';
+						strDesign += '	<div class="radio-top-round-icon">';
+						strDesign += '		<div class="fa fa-circle"></div>';
+						strDesign += '	</div>';
+						strDesign += '	<div class="radio-image-text-block">';
+						strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat1[iRow]['cat_image']+'" class="pic-0"> </div>';
+						strDesign += '		<h5 class="mb-4">'+arr_cat1[iRow]['cat_name']+'</h5>';
+						strDesign += '	</div>';
+						strDesign += '</div>';
+					}
+					
+					jQuery('#divCat1List').html(strDesign);
+				}
+				else
+				{
+					alert('Please Select State');
+				}
+			}
+			else if(jQuery(this).data('action')=='cat1')
+			{
+				if(cat_id1 > 0)
+				{
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerCat2').addClass('show');
+					
+					strDesign = '';
+					for(iRow=0;iRow<=arr_cat2.length-1;iRow++)
+					{
+						if(arr_cat2[iRow]['cat_parent_id']==cat_id1)
+						{
+							strDesign += '<div class="card-block radio cat_name2" data-cat_id2="'+arr_cat2[iRow]['id']+'" >';
+							strDesign += '	<div class="radio-top-round-icon">';
+							strDesign += '		<div class="fa fa-circle"></div>';
+							strDesign += '	</div>';
+							strDesign += '	<div class="radio-image-text-block">';
+							strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat2[iRow]['cat_image']+'" class="pic-0"> </div>';
+							strDesign += '		<h5 class="mb-4">'+arr_cat2[iRow]['cat_name']+'</h5>';
+							strDesign += '	</div>';
+							strDesign += '</div>';
+						}
+					}
+					
+					jQuery('#divCat2List').html(strDesign);
+				}
+				else
+				{
+					alert('Please Select Type');
+				}
+			}
+			else if(jQuery(this).data('action')=='cat2')
+			{
+				if(cat_id2 > 0)
+				{
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerCat3').addClass('show');
+					
+					strDesign = '';
+					for(iRow=0;iRow<=arr_cat3.length-1;iRow++)
+					{
+						if(arr_cat3[iRow]['cat_parent_id']==cat_id2)
+						{
+							strDesign += '<div class="card-block radio cat_name3" data-cat_id3="'+arr_cat3[iRow]['id']+'" >';
+							strDesign += '	<div class="radio-top-round-icon">';
+							strDesign += '		<div class="fa fa-circle"></div>';
+							strDesign += '	</div>';
+							strDesign += '	<div class="radio-image-text-block">';
+							strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat3[iRow]['cat_image']+'" class="pic-0"> </div>';
+							strDesign += '		<h5 class="mb-4">'+arr_cat3[iRow]['cat_name']+'</h5>';
+							strDesign += '	</div>';
+							strDesign += '</div>';
+						}
+					}
+					
+					jQuery('#divCat3List').html(strDesign);
+				}
+				else
+				{
+					alert('Please Select Location');
+				}
+			}
+			else if(jQuery(this).data('action')=='cat3')
+			{
+				if(cat_id3 > 0)
+				{
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerProduct').addClass('show');
+					
+					strDesign = '<option value="0" >Select Product</option>';
+					for(iRow=0;iRow<=arr_product.length-1;iRow++)
+					{
+						if(arr_product[iRow]['cat_id']==cat_id3)
+						{
+							strDesign += '<option value="'+arr_product[iRow]['product_id']+'" >'+arr_product[iRow]['product_name']+'</option>';
+						}
+					}
+					
+					jQuery('#cboProduct').html(strDesign);
+					
+					
+					if(cat_id2==5)
+					{
+						jQuery('#product_depth').val('0');
+						jQuery('#product_depth').attr('readonly',true);
+						jQuery('#usr_product_depth').val('0');
+						jQuery('#usr_product_depth').attr('readonly',true);
+					}
+					
+					
+				}
+				else
+				{
+					alert('Please Select Material');
+				}
+			}
+			else if(jQuery(this).data('action')=='product')
+			{
+				if(product_id > 0)
+				{
+					iTotalNoProduct = 0;
+					usr_product_length = jQuery('#usr_product_length').val();
+					usr_product_width = jQuery('#usr_product_width').val();
+					usr_product_depth = jQuery('#usr_product_depth').val();
+					
+					jQuery('#spanUnitPrice').html('');
+					jQuery('#spanSquareFeetCalculator').html('');
+					jQuery('#spanQuantityRequired').html('');
+					jQuery('#spanTotalCost').html('');
+					
+					if(cat_id2==5)
+					{
+						console.log(usr_product_length);
+						console.log(usr_product_width);
+						console.log(product_length);
+						console.log(product_width);
+						
+						iTotalNoProduct = Math.round((parseFloat(usr_product_length)*parseFloat(usr_product_width))/(parseFloat(product_length)*parseFloat(product_width)));
+					}
+				
+					jQuery(this).parents('div.card-body').removeClass('show');
+					jQuery('#divContainerCalculation').addClass('show');
+					
+					jQuery('#spanUnitPrice').html('Rs '+product_price);
+					jQuery('#spanSquareFeetCalculator').html(Math.round(parseFloat(usr_product_length)*parseFloat(usr_product_width))+' sqft');
+					jQuery('#spanQuantityRequired').html(iTotalNoProduct+' pc');
+					jQuery('#spanTotalCost').html('Rs '+parseInt(iTotalNoProduct)*parseInt(product_price));
+					
+					
+					/*
+					strDesign = '<option value="0" >Select Product</option>';
+					for(iRow=0;iRow<=arr_product.length-1;iRow++)
+					{
+						if(arr_product[iRow]['cat_id']==cat_id3)
+						{
+							strDesign += '<option value="'+arr_product[iRow]['product_id']+'" >'+arr_product[iRow]['product_name']+'</option>';
+						}
+					}
+					
+					jQuery('#cboProduct').html(strDesign);
+					*/
+					
+				}
+				else
+				{
+					alert('Please Select Product');
+				}
+			}
+			
+			// cat1
+			
+		});
+		
+		function loadProduct()
+		{
+			if(jQuery('#cboProduct').val()=='0')
+			{
+				jQuery('#imgProduct').attr('src','admin/uploads/product/default_cal_product_image.png');
+				jQuery('#product_length').val('0');
+				jQuery('#product_width').val('0');
+				jQuery('#product_depth').val('0');
+				jQuery('#product_price').val('0');
+				
+				product_id = 0;
+				product_length = 0;
+				product_width = 0;
+				product_price = 0;
+			}
+			else
+			{
+				for(iRow=0;iRow<=arr_product.length-1;iRow++)
+				{
+					if(arr_product[iRow]['product_id']==jQuery('#cboProduct').val())
+					{
+						jQuery('#imgProduct').attr('src','admin/uploads/product/'+arr_product[iRow]['product_picture']);
+						jQuery('#product_length').val(arr_product[iRow]['product_length']);
+						jQuery('#product_width').val(arr_product[iRow]['product_width']);
+						
+						jQuery('#product_price').val(arr_product[iRow]['product_price']);
+						
+						product_id = jQuery('#cboProduct').val();
+						product_length = arr_product[iRow]['product_length'];
+						product_width = arr_product[iRow]['product_width'];
+						product_price = arr_product[iRow]['product_price'];
+						
+						if(cat_id2==5)
+						{
+						
+						}
+						else
+						{
+							jQuery('#product_depth').val(arr_product[iRow]['product_depth']);
+							product_depth = arr_product[iRow]['product_depth'];
+						}
+						
+					}
+				}
+			}
+		}
+		
+		jQuery(document).on('click','.btnPrevious',function(){
+		
+			if(jQuery(this).data('action')=='state')
+			{
+				jQuery(this).parents('div.card-body').removeClass('show');
+				jQuery('#divContainerZone').addClass('show');
+				
+				//zone_id = 0;
+				//zone_name = '';
+		
+			}
+			else if(jQuery(this).data('action')=='cat1')
+			{
+				jQuery(this).parents('div.card-body').removeClass('show');
+				jQuery('#divContainerState').addClass('show');
+				
+				//zone_id = 0;
+				//zone_name = '';
+		
+			}
+			else if(jQuery(this).data('action')=='cat2')
+			{
+				jQuery(this).parents('div.card-body').removeClass('show');
+				jQuery('#divContainerCat1').addClass('show');
+				
+				//zone_id = 0;
+				//zone_name = '';
+		
+			}
+			else if(jQuery(this).data('action')=='cat3')
+			{
+				jQuery(this).parents('div.card-body').removeClass('show');
+				jQuery('#divContainerCat2').addClass('show');
+				
+				//zone_id = 0;
+				//zone_name = '';
+		
+			}
+			else if(jQuery(this).data('action')=='product')
+			{
+				jQuery(this).parents('div.card-body').removeClass('show');
+				jQuery('#divContainerCat3').addClass('show');
+				
+				//zone_id = 0;
+				//zone_name = '';
+		
+			}
+			
+		})
 
     </script>
     
