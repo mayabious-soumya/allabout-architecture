@@ -26,6 +26,25 @@
 	";
 	$dtSearchZone = getDatatable($strSql);	
 	//print_r($dtSearchZone);
+	
+	$strSql = "
+		select  id, cat_name
+		  from  tblcategories
+		 where  cat_status = 'A'
+		   and  cat_lvl = 1
+	  order by  cat_order
+	";
+	$dtSearchCat1 = getDatatable($strSql);
+	
+	$strSql = "
+		select  id, ifnull(cat_parent_id,0) cat_parent_id, cat_name
+		  from  tblcategories
+		 where  cat_status = 'A'
+		   and  cat_lvl = 2
+	  order by  cat_order
+	";
+	$dtSearchCat2 = getDatatable($strSql);
+	
 ?>
 <header class="navwrap">
         <div class="container">
@@ -43,6 +62,7 @@
                 <div class="col-sm-4">
                     <ul class="topnav">
                         <li><a href="faq.php">Faq</a></li>
+                        <li><a href="https://allaboutarchitecture.in/blog/" target="_blank">Blog</a></li>
                         <li><a href="contact-us.php">Contact Us</a></li>
 						
                         <li>
@@ -95,7 +115,8 @@
                 <a href="workshop.php"><li>Workshop</li></a>
                 <a href="edvideos.php"><li>Ed Videos</li></a>
                 <a href="faq.php"><li>Faq</li></a>
-                <a href="#"><li>Contact Us</li></a>
+                <a href="https://allaboutarchitecture.in/blog/"><li>Blog</li></a>
+                <a href="contact-us.php"><li>Contact Us</li></a>
 				<?php
 				  if(isset($_SESSION['ab_user']))
 				  {
@@ -462,546 +483,90 @@
                       
                       <!----category--->  
                         <div class="search-box search-category">
-                          <div class="header-block">
-                            <h4 class="titel">Select your Search Category</h4>
-                          </div>
-                          <div class="search-content-box">
-                            <div class="catagorie-accordion-block">
-                              
-                              <div class="accordion" id="accordionExample">
+						  <form action="search-category.php" method="post" id="frmSearch" name="frmSearch" onSubmit="return checkCategorySearch()" >
+                          <div class="row">
 
-                                <div class="card">
-                                  <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#1tem1" aria-expanded="true" aria-controls="collapseOne">
-                                        Category Name 1
-                                      </button>
-                                    </h5>
-                                  </div>
-
-                                  <div id="1tem1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-
-                                       <div class="catagory-redio-block">
-                                        <ul class="catagory-redio-list">
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct1" value="option1" checked>
-                                              <label class="form-check-label" for="categoryProduct1">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct2" value="option2">
-                                              <label class="form-check-label" for="categoryProduct2">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct3" value="option3" disabled>
-                                              <label class="form-check-label" for="categoryProduct3">
-                                                Disabled Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct4" value="option2">
-                                              <label class="form-check-label" for="categoryProduct4">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct5" value="option2">
-                                              <label class="form-check-label" for="categoryProduct5">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct6" value="option2">
-                                              <label class="form-check-label" for="categoryProduct6">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct7" value="option2">
-                                              <label class="form-check-label" for="categoryProduct7">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct8" value="option2">
-                                              <label class="form-check-label" for="categoryProduct8">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct9" value="option2">
-                                              <label class="form-check-label" for="categoryProduct9">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct10" value="option2">
-                                              <label class="form-check-label" for="categoryProduct10">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct11" value="option2">
-                                              <label class="form-check-label" for="categoryProduct11">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct12" value="option2">
-                                              <label class="form-check-label" for="categoryProduct12">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct13" value="option2">
-                                              <label class="form-check-label" for="categoryProduct13">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct14" value="option2">
-                                              <label class="form-check-label" for="categoryProduct14">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem1" id="categoryProduct15" value="option2">
-                                              <label class="form-check-label" for="categoryProduct15">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                        </ul>
-                                         
-                                        
-                                        
-
-                                       </div>
-
-
-                                    </div>
-                                  </div>
+                            <div class="col-sm-6">
+                              <div class="search-category-leftblock">
+                                <div class="search-logo">
+                                    <img src="images/search-logo.png" class="img-fluid">
                                 </div>
-
-
-                                <div class="card">
-                                  <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#1tem2" aria-expanded="true" aria-controls="collapseOne">
-                                        Category Name 2
-                                      </button>
-                                    </h5>
-                                  </div>
-
-                                  <div id="1tem2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-
-                                       <div class="catagory-redio-block">
-                                        <ul class="catagory-redio-list">
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product1" value="option1" checked>
-                                              <label class="form-check-label" for="category2Product1">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product2" value="option2">
-                                              <label class="form-check-label" for="category2Product2">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product3" value="option2">
-                                              <label class="form-check-label" for="category2Product3">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product4" value="option2">
-                                              <label class="form-check-label" for="category2Product4">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product5" value="option2">
-                                              <label class="form-check-label" for="category2Product5">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product6" value="option2">
-                                              <label class="form-check-label" for="category2Product6">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product7" value="option2">
-                                              <label class="form-check-label" for="category2Product7">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product8" value="option2">
-                                              <label class="form-check-label" for="category2Product8">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem2" id="category2Product9" value="option2">
-                                              <label class="form-check-label" for="category2Product9">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          
-
-                                        </ul>
-                                         
-                                        
-                                        
-
-                                       </div>
-
-
-                                    </div>
-                                  </div>
-                                </div>
-
-
-                                <div class="card">
-                                  <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#1tem3" aria-expanded="true" aria-controls="collapseOne">
-                                        Category Name 3
-                                      </button>
-                                    </h5>
-                                  </div>
-
-                                  <div id="1tem3" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-
-                                       <div class="catagory-redio-block">
-                                        <ul class="catagory-redio-list">
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product1" value="option1" checked>
-                                              <label class="form-check-label" for="category3Product1">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product2" value="option2">
-                                              <label class="form-check-label" for="category3Product2">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product3" value="option2">
-                                              <label class="form-check-label" for="category3Product3">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product4" value="option2">
-                                              <label class="form-check-label" for="category3Product4">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product5" value="option2">
-                                              <label class="form-check-label" for="category3Product5">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product6" value="option2">
-                                              <label class="form-check-label" for="category3Product6">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product7" value="option2">
-                                              <label class="form-check-label" for="category3Product7">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product8" value="option2">
-                                              <label class="form-check-label" for="category3Product8">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product9" value="option2">
-                                              <label class="form-check-label" for="category3Product9">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product10" value="option2">
-                                              <label class="form-check-label" for="category3Product10">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product11" value="option2">
-                                              <label class="form-check-label" for="category3Product11">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem3" id="category3Product12" value="option2">
-                                              <label class="form-check-label" for="category3Product12">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          
-
-                                        </ul>
-                                         
-                                        
-                                        
-
-                                       </div>
-
-
-                                    </div>
-                                  </div>
-                                </div>
-
-
-                                <div class="card">
-                                  <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#1tem4" aria-expanded="true" aria-controls="collapseOne">
-                                        Category Name 4
-                                      </button>
-                                    </h5>
-                                  </div>
-
-                                  <div id="1tem4" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-
-                                       <div class="catagory-redio-block">
-                                        <ul class="catagory-redio-list">
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product1" value="option1" checked>
-                                              <label class="form-check-label" for="category4Product1">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product2" value="option2">
-                                              <label class="form-check-label" for="category4Product2">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product3" value="option2">
-                                              <label class="form-check-label" for="category4Product3">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product4" value="option2">
-                                              <label class="form-check-label" for="category4Product4">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product5" value="option2">
-                                              <label class="form-check-label" for="category4Product5">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product6" value="option2">
-                                              <label class="form-check-label" for="category4Product6">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product7" value="option2">
-                                              <label class="form-check-label" for="category4Product7">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product8" value="option2">
-                                              <label class="form-check-label" for="category4Product8">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product9" value="option2">
-                                              <label class="form-check-label" for="category4Product9">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product10" value="option2">
-                                              <label class="form-check-label" for="category4Product10">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product11" value="option2">
-                                              <label class="form-check-label" for="category4Product11">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product12" value="option2">
-                                              <label class="form-check-label" for="category4Product12">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="categoryItem4" id="category4Product13" value="option2">
-                                              <label class="form-check-label" for="category4Product13">
-                                                Category Product Name
-                                              </label>
-                                            </div>
-                                          </li>
-
-
-                                          
-
-                                        </ul>
-                                         
-                                        
-                                        
-
-                                       </div>
-
-
-                                    </div>
-                                  </div>
-                                </div>
-
                                 
-
-                                
-
-
-
+                                <div class="search-button-block">
+                                  <input type="hidden" id="sh_cat_id" name="sh_cat_id" value="0" >  
+                                  <button type="submit" class="btn search-button">Search</button>
+                                </div>
 
                               </div>
-                              
-
                             </div>
+
+                            <div class="col-sm-6">
+                              <div class="search-category-rightblock">
+                                <div class="header-block">
+                                  <h4 class="titel">Select your Search Category</h4>
+                                </div>
+
+                                <div class="search-content-box">
+                                  <div class="catagorie-accordion-block">
+                                    
+                                    <div class="accordion" id="accordionExample">
+                        
+                                      <?php
+                                      for($iRow=0;$iRow<=count($dtSearchCat1)-1;$iRow++)
+                                      {
+                                        echo '
+                                        <div class="card">
+                                          <div class="card-header" id="headingOne">
+                                          <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#1tem'.$dtSearchCat1[$iRow]['id'].'" aria-expanded="true" aria-controls="collapseOne">
+                                            '.$dtSearchCat1[$iRow]['cat_name'].'
+                                            </button>
+                                          </h5>
+                                          </div>
+                                          
+                                          <div id="1tem'.$dtSearchCat1[$iRow]['id'].'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                          <div class="card-body">
+                                            <div class="catagory-redio-block">
+                                            <ul class="catagory-redio-list"> ';
+                                            for($iRowCount=0;$iRowCount<=count($dtSearchCat2)-1;$iRowCount++)
+                                            {
+                                              if($dtSearchCat2[$iRowCount]['cat_parent_id']==$dtSearchCat1[$iRow]['id'])
+                                              {
+                                                echo '
+                                                  <li>
+                                                  <div class="form-check">
+                                                    <input class="form-check-input cat_search_radio" type="radio" name="categoryItem'.$dtSearchCat1[$iRow]['id'].'" id="cat_id'.$dtSearchCat2[$iRowCount]['id'].'" value="'.$dtSearchCat2[$iRowCount]['id'].'" >
+                                                    <label class="form-check-label" for="cat_id'.$dtSearchCat2[$iRowCount]['id'].'">
+                                                    '.$dtSearchCat2[$iRowCount]['cat_name'].'
+                                                    </label>
+                                                  </div>
+                                                  </li>
+                                                ';
+                                              }
+                                            }
+                                        echo '
+                                            </ul>
+                                              </div>
+                                          </div>
+                                          </div>
+                                        </div>  <!-- End of card -->
+                                        ';
+                                      }
+                                      ?>
+                      
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
                           </div>
-                          <div class="search-button-block">
-                            <input type="hidden" id="sh_cat_id" name="sh_cat_id" value="0" >  
-                            <input type="hidden" id="sh_zone_id" name="sh_zone_id" value="0" >  
-                            <button type="submit" class="btn search-button">Search</button>
-                          </div>
+
+                          
+
+                          
+						  </form>
                         </div>
                       <!----category----end--->
 
@@ -1025,7 +590,6 @@
                                     <img src="images/search-logo.png" class="img-fluid">
                                   </div>
                                   <div class="search-button-block">
-                                    <input type="hidden" id="sh_cat_id" name="sh_cat_id" value="0" >  
                                     <input type="hidden" id="sh_zone_id" name="sh_zone_id" value="0" >  
                                     <button type="submit" class="btn search-button">Search</button>
                                   </div>

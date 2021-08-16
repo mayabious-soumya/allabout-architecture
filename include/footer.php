@@ -15,7 +15,7 @@
                         <!--<li><a href="#">GRID SYSTEM</a></li>-->
                         <li><a href="#">SERVICES</a></li>
                         <li><a href="#">PORTFOLIO</a></li>
-                        <li><a href="#">BLOG</a></li>
+                        <li><a href="https://allaboutarchitecture.in/blog/">BLOG</a></li>
                         <li><a href="#">SHOP</a></li>
                         <li><a href="#">PAGES</a></li>
                     </ul>
@@ -56,7 +56,7 @@
 	  
 	<!-- Strat - Calculator modal -->
 
-	<a href="" data-toggle="modal" data-target="#modCalculator" class="modCalculator-button">
+	<a href="calculator.php" class="modCalculator-button">
         Calculator
     </a>
 

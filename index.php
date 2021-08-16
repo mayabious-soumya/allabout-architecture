@@ -56,14 +56,21 @@
   
   ?> 
 
-    <div id="carouselExampleIndicators" class="carousel carousel-fade" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel carousel-fade" data-ride="carousel">
         <!-- <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol> -->
         <div class="carousel-inner">
-          <div class="carousel-item active blackbg">
+
+          <div class="carousel-item active">
+            <div class="youtub-video-banner">
+              <iframe width="560" height="315" class="video" src="https://www.youtube.com/embed/56Fzqq5vyrM?controls=1&autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="carousel-item">
             <img class="img-fluid" src="images/banner1.jpg" alt="First slide">
             <div class="carousel-caption">
                 <h5>Contrary to <span>popular</span></h5>
@@ -207,6 +214,32 @@
         </div>
       </section>
 
+      <!-----Why we do---->
+
+      <section class="ourteam">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Why <span>We Do</span></h2>
+                </div>
+                <div class="col-sm-4">
+                    <img src="images/sdg4.png" class="img-fluid">
+                </div>
+                <div class="col-sm-4">
+                    <img src="images/sdg11.png" class="img-fluid">
+                </div>
+                <div class="col-sm-4">
+                    <img src="images/sdg12.png" class="img-fluid">
+                </div>
+            </div>
+        </div>  
+        <div class="howwedo-button-block"> 
+            <a href="faq.php" class="howwedo-button">How We Do</a>
+        </div>     
+      </section>
+
+      <!-----Why we do---end--->
+
       <section class="home-workshop">
         <div class="container">
             <div class="row"> 
@@ -263,6 +296,88 @@
           </div>
         </div>        
       </section>
+
+      <section class="home-recent-product home-blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--<h4>Expert services</h4>-->
+                    <h3>Recent <br><span>Blog</span></h3>
+                    <button class="customPreviousBtn"><img src="images/prev.png"></button>
+                    <button class="customNextBtn"><img src="images/next.png"></button>
+                    
+                </div> 
+            </div>
+        </div>
+        <div class="recentslider-wrap">
+        <div class="owl-carousel blog-carousel">
+            <a href="#">
+              <div class="blog-item">      
+                    <img src="images/recent-product1.jpg" class="img-fluid">
+                    <div class="blog-details">
+                      <h3>Sustainable Development Goals of UN and its relevance for designing Cities of the future – The India Story</h3>
+                      <p>
+                        The concept of sustainable development appeared in 1987 for the first
+                      </p>
+                    </div>
+                  
+              </div>
+            </a>
+            <a href="#">
+              <div class="blog-item">      
+                    <img src="images/recent-product2.jpg" class="img-fluid">
+                    <div class="blog-details">
+                      <h3>Sustainable Development Goals of UN and its relevance for designing Cities of the future – The India Story</h3>
+                      <p>
+                        The concept of sustainable development appeared in 1987 for the first
+                      </p>
+                    </div>
+                  
+              </div>
+            </a>
+            <a href="#">
+              <div class="blog-item">      
+                    <img src="images/recent-product3.jpg" class="img-fluid">
+                    <div class="blog-details">
+                      <h3>Sustainable Development Goals of UN and its relevance for designing Cities of the future – The India Story</h3>
+                      <p>
+                        The concept of sustainable development appeared in 1987 for the first
+                      </p>
+                    </div>
+                  
+              </div>
+            </a>
+            <a href="#">
+              <div class="blog-item">      
+                    <img src="images/recent-product4.jpg" class="img-fluid">
+                    <div class="blog-details">
+                      <h3>Sustainable Development Goals of UN and its relevance for designing Cities of the future – The India Story</h3>
+                      <p>
+                        The concept of sustainable development appeared in 1987 for the first
+                      </p>
+                    </div>
+                  
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="blog-item">      
+                    <img src="images/recent-product5.jpg" class="img-fluid">
+                    <div class="blog-details">
+                      <h3>Sustainable Development Goals of UN and its relevance for designing Cities of the future – The India Story</h3>
+                      <p>
+                        The concept of sustainable development appeared in 1987 for the first
+                      </p>
+                    </div>
+                  
+              </div>
+            </a>
+
+          </div>
+        </div>        
+      </section>
+
+      
 
       <section class="ceowrap">
           <div class="box1">
@@ -335,46 +450,7 @@
         </div>        
       </section>
 
-      <section class="ourteam">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2>Our <span>Team</span></h2>
-                </div>
-                <div class="col-sm-4">
-                    <img src="images/team1.jpg" class="img-fluid">
-                    <h3>JESSICA JOE</h3>
-                    <h4>VP ENGINEERING</h4>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4">
-                    <img src="images/team2.jpg" class="img-fluid">
-                    <h3>JOHN JOE</h3>
-                    <h4>FOUNDER AND CEO</h4>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4">
-                    <img src="images/team3.jpg" class="img-fluid">
-                    <h3>EDWARD DOE</h3>
-                    <h4>CREATIVE DIRECTOR</h4>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>   
-        <a href="#" class="allteambt">View all Team</a>     
-      </section>
+      
 
       <section class="testimonial-wrap">
         <div class="container">
@@ -462,6 +538,23 @@ $('.owl-carousel-2').owlCarousel({
     }
 })
 
+$('.blog-carousel').owlCarousel({
+    loop:true,
+    margin:25,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+        },
+        600:{
+            items:2,
+        },
+        1000:{
+            items:3,
+        }
+    }
+})
+
 
 $('.owl-carousel-3').owlCarousel({
     loop:true,
@@ -506,6 +599,16 @@ $('.owl-carousel-3').owlCarousel({
   });
   
 });
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //Event for pushed the video
+        $('#carouselExampleIndicators').carousel({
+            pause: true,
+            interval: false
+        });
+    });
     </script>
   </body>
 </html>
