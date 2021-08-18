@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +17,8 @@
     <?php include("include/header.php");?> 
 
     <section class="inside-page-banner">
-        <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
+        <img class="img-fluid" src="images/contact-us-banner.png" alt="inside-page">
+        <h5 class="inside-page-banner-text">Write to us</h5>
     </section>
 
 
@@ -46,7 +50,7 @@
 
                                <div class="contact-form-box">
                                   <div class="contact-header">
-                                    <h3 class="titel">Get in touch</h3>
+                                    <h3 class="titel">Get In Touch</h3>
                                     <div class="contact-social-block">
                                       <ul>
                                         <li><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -55,7 +59,7 @@
                                       </ul>
                                     </div>
                                   </div>
-                                  <p>If you have any questions or queries a member of staff will always be happy to help. Feel free to contact us by telephone or email and we will be sure to get back to you as soon as possible.</p>
+                                  <p>If you have any query, or need any information to build Sustainable Cities, you can feel free to contact us. We’ll get back to you as early as possible.</p>
 
 
                                   <div class="form-message-warning" style="display: none;">

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +17,8 @@
     <?php include("include/header.php");?> 
 
     <section class="inside-page-banner">
-        <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
+        <img class="img-fluid" src="images/faq-banner.png" alt="inside-page">
+        <h5 class="inside-page-banner-text">Frequently Asked Questions </h5>
     </section>
 
 

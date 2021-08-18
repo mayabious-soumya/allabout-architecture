@@ -896,7 +896,29 @@ body {
   outline: none;
   text-decoration: none;
   text-align: center;
+  position: relative;
 }
+.inside-page-banner .inside-page-banner-text{
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.inside-page-banner .inside-page-banner-text span{
+  font-weight: bold;
+}
+
 .inside-page-banner .owl-theme .owl-nav.disabled+.owl-dots {
     margin-top: 10px;
     position: absolute;
@@ -916,28 +938,56 @@ body {
 
 .insidepage-content-block .main-titel-block{
   width: 100%;
-  padding: 0;
+  padding: 0 25px;
   margin: 0 0 20px 0;
   border: none;
   outline: none;
   text-decoration: none;
   background: #f5f5f5;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: solid 2px #4b4e53;
 }
 
 .insidepage-content-block .main-titel-block h2 {
-    display: block;
+    display: inline-block;
     font-size: 28px;
     font-weight: lighter;
-    padding-left: 25px;
+    padding: 0;
+    margin: 0;
     color: #4b4e53;
     text-transform: uppercase;
-    border-left: solid 2px #4b4e53;
-    line-height: 80px;
+    border: none;
+    line-height: normal;
 }
 
 .insidepage-content-block .main-titel-block h2 span {
     font-weight: bold;
 }
+
+
+.insidepage-content-block .main-titel-block .btn{
+  display: inline-block;
+  clear: both;
+  background: #000;
+  color: #fff;
+  padding: 4px 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.insidepage-content-block .main-titel-block .btn:hover {
+  background: #65af56;
+  text-decoration: none;
+}
+
+
 
 .workshop-block{
   width: 100%;
@@ -3126,7 +3176,7 @@ body.small-sidebar{
   background: #65af56;
   cursor: pointer;
   border: 1px solid #65af56;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
@@ -3137,7 +3187,7 @@ body.small-sidebar{
   text-transform: uppercase;
   letter-spacing: 1;
   position: fixed;
-  right: -40px;
+  right: -52px;
   top: 50%;
   z-index: 9999;
   transform: rotate(90deg);
@@ -6340,7 +6390,7 @@ border-radius: 8px;
 }
 .calculator-image-form-box .calculator-left-image-box{
   width: 100%;
-  padding: 0;
+  padding: 0 15px 0 0;
   margin: 0;
   border: none;
   outline: none;
@@ -6409,13 +6459,16 @@ border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
   color: #969dbe;
+  white-space: nowrap;
+  padding-right: 8px;
+  max-width: 200px;
 }
 .calculator-form-details-box .form-block .calculator-form-box .form-control{
   display: inline-block;
   width: 100%;
-  padding: 0;
+  padding: 8px;
   margin: 0;
-  text-align: left;
+  text-align: right;
   font-size: 14px;
   font-weight: normal;
   text-align: right;
@@ -6436,11 +6489,36 @@ border-radius: 8px;
   color: #65af56 !important;
 }
 
+.calculator-image-form-box .calculator-form-details-box .form-block .calculator-form-box.product-name-select select{
+  width: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  padding-left: 0 !important;
+  text-align: left;
+}
+
+.calculate-result-image-box{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+.calculate-result-image-box img{
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
 /*////////*/
 
 .calculate-result-box{
   width: 100%;
-  padding: 0;
+  padding: 15px 0;
   margin: 0;
   border: none;
   outline: none;
@@ -7000,4 +7078,13 @@ border-radius: 8px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.product-save-message {
+    color: #65af56;
+    font-weight: bold;
+}
+
+.product-save-message span{
+  padding-left: 8px;
 }

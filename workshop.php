@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,32 +14,58 @@
   </head>
   <body>
      
-    <?php include("include/header.php");?> 
+    <?php include("include/header.php");
+	
+	$strSql = "
+		select slno, date_format(`datetime`,'%d') workshop_day, date_format(`datetime`,'%M') workshop_month,
+		wdate, wtime, name, sdescription, ldescription, author, timage, bimage, featured
+		from tblworkshop 
+		where str_to_date(date_format(`datetime`,'%d/%m/%Y'),'%d/%m/%Y') >
+		str_to_date(date_format(addtime(utc_timestamp(),'05:30:00'),'%d/%m/%Y'),'%d/%m/%Y')
+		and featured = 1
+		order by `datetime`
+	  ";
+	  $dtWorkShopUpcoming = getDatatable($strSql);
+	  
+	  $strSql = "
+		select slno, date_format(`datetime`,'%d') workshop_day, date_format(`datetime`,'%M') workshop_month,
+		wdate, wtime, name, sdescription, ldescription, author, timage, bimage, featured
+		from tblworkshop 
+		where str_to_date(date_format(`datetime`,'%d/%m/%Y'),'%d/%m/%Y') =
+		str_to_date(date_format(addtime(utc_timestamp(),'05:30:00'),'%d/%m/%Y'),'%d/%m/%Y')
+		and featured = 1
+		order by `datetime`
+	  ";
+	  $dtWorkShopToday = getDatatable($strSql);
+	  
+	  $strSql = "
+		select slno, date_format(`datetime`,'%d') workshop_day, date_format(`datetime`,'%M') workshop_month,
+		wdate, wtime, name, sdescription, ldescription, author, timage, bimage, featured
+		from tblworkshop 
+		where str_to_date(date_format(`datetime`,'%d/%m/%Y'),'%d/%m/%Y') <
+		str_to_date(date_format(addtime(utc_timestamp(),'05:30:00'),'%d/%m/%Y'),'%d/%m/%Y')
+		and featured = 1
+		order by `datetime`
+	  ";
+	  $dtWorkShopPast = getDatatable($strSql);
+	
+	?> 
 
-    <section class="inside-page-banner">
-        <div class="owl-carousel owl-theme">
-            <div class="item blackbg">
-                <img class="img-fluid" src="images/inside-page-banner-1.jpg" alt="First slide">
-                <div class="carousel-caption">
-                    <h5>Contrary to <span>popular</span></h5>
-                </div>
-            </div>
-
-            <div class="item blackbg">
-                <img class="img-fluid" src="images/inside-page-banner-2.jpg" alt="First slide">
-                <div class="carousel-caption">
-                    <h5>Contrary to <span>popular</span></h5>
-                </div>
-            </div>
-        </div>
+	<section class="inside-page-banner">
+        <img class="img-fluid" src="images/workshop-banner.png" alt="inside-page">
+        <h5 class="inside-page-banner-text">Get more exposure</h5>
     </section>
-
+    
 
     <section class="insidepage-content-block workshop-main-bkock">
         <div class="container">
             <div class="main-titel-block">
                 <h2>Work <span>shops</span></h2>
             </div>
+            <div class="insidepage-description-block">
+            	<p>Our aim is to encourage and inspire people to make sustainable development for a greater socio-economic and environmental impact. The interactive and informative workshops are designed to build skills as well as interests and offer green credits as a reward. Join the community to redefine your approach and thinking towards sustainable development.</p>
+            </div>
+
             <div class="workshop-block">
                 <div class="workshop-header-menu-block">
                     <ul class="nav nav-tabs">
@@ -59,163 +88,38 @@
                         <!---workshop-all-box-->
                         <div class="workshop-all-boxs">
                             <div class="row">
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-2.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card </p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/mostviewed4.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-2.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/mostviewed4.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
+								<?php
+								for($iRow=0;$iRow<=count($dtWorkShopUpcoming)-1;$iRow++)
+								{
+									echo '
+									<div class="col-sm-6 col-md-4">   
+										<div class="card workshop-box">
+											<div class="workshop-image">
+												<img src="admin/workshop_image/'.$dtWorkShopUpcoming[$iRow]['timage'].'" class="card-img-top" alt="'.$dtWorkShopUpcoming[$iRow]['name'].'">
+											</div>
+											<div class="card-body">
+												<h5 class="card-title">'.$dtWorkShopUpcoming[$iRow]['name'].'</h5>
+												<p class="card-text">'.$dtWorkShopUpcoming[$iRow]['sdescription'].'</p>
+												<a href="workshop-details.php?slno='.$dtWorkShopUpcoming[$iRow]['slno'].'" class="btn btn-primary">Know More</a>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								
+								if(count($dtWorkShopUpcoming)==0)
+								{
+									echo '
+									<div class="col-sm-12 col-md-12">   
+										<div class="card workshop-box">
+											<div class="card-body">
+												<h5 class="card-title">No records found</h5>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								?>
 
                             </div>
                         </div>
@@ -228,99 +132,37 @@
                         <!---workshop-all-box-->
                         <div class="workshop-all-boxs">
                             <div class="row">
-
-                                
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card </p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-2.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card </p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/mostviewed4.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
+								<?php
+								for($iRow=0;$iRow<=count($dtWorkShopToday)-1;$iRow++)
+								{
+									echo '
+									<div class="col-sm-6 col-md-4">   
+										<div class="card workshop-box">
+											<div class="workshop-image">
+												<img src="admin/workshop_image/'.$dtWorkShopToday[$iRow]['timage'].'" class="card-img-top" alt="'.$dtWorkShopToday[$iRow]['name'].'">
+											</div>
+											<div class="card-body">
+												<h5 class="card-title">'.$dtWorkShopToday[$iRow]['name'].'</h5>
+												<p class="card-text">'.$dtWorkShopToday[$iRow]['sdescription'].'</p>
+												<a href="workshop-details.php?slno='.$dtWorkShopToday[$iRow]['slno'].'" class="btn btn-primary">Know More</a>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								if(count($dtWorkShopToday)==0)
+								{
+									echo '
+									<div class="col-sm-12 col-md-12">   
+										<div class="card workshop-box">
+											<div class="card-body">
+												<h5 class="card-title">No records found</h5>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								?>
 
                             </div>
                         </div>
@@ -333,100 +175,38 @@
                         <!---workshop-all-box-->
                         <div class="workshop-all-boxs">
                             <div class="row">
-
+								<?php
+								for($iRow=0;$iRow<=count($dtWorkShopPast)-1;$iRow++)
+								{
+									echo '
+									<div class="col-sm-6 col-md-4">   
+										<div class="card workshop-box">
+											<div class="workshop-image">
+												<img src="admin/workshop_image/'.$dtWorkShopPast[$iRow]['timage'].'" class="card-img-top" alt="'.$dtWorkShopPast[$iRow]['name'].'">
+											</div>
+											<div class="card-body">
+												<h5 class="card-title">'.$dtWorkShopPast[$iRow]['name'].'</h5>
+												<p class="card-text">'.$dtWorkShopPast[$iRow]['sdescription'].'</p>
+												<a href="workshop-details.php?slno='.$dtWorkShopPast[$iRow]['slno'].'" class="btn btn-primary">Know More</a>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								if(count($dtWorkShopPast)==0)
+								{
+									echo '
+									<div class="col-sm-12 col-md-12">   
+										<div class="card workshop-box">
+											<div class="card-body">
+												<h5 class="card-title">No records found</h5>
+											</div>
+										</div>
+									</div>
+									';
+								}
+								?>
                                 
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product2.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product3.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product4.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/recent-product1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title Workshop title Workshop title Workshop title Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/mostviewed4.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4">   
-                                    <div class="card workshop-box">
-                                        <div class="workshop-image">
-                                            <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Workshop title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                            <a href="workshop-details.php" class="btn btn-primary">Collaborate</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                             </div>
                         </div>
                         <!---workshop-all-box-->

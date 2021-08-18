@@ -25,7 +25,7 @@
 	$dtZone = getDatatable($strSql);
 	
 	$strSql = "
-		select state_id, zone_id, state_name, 
+		select state_id, zone_id, state_name, state_desc, 
 		case
 		  when trim(ifnull(state_image,'')) = '' then 'default_state_image.png'
 		  else trim(ifnull(state_image,''))
@@ -66,7 +66,7 @@
 				case
 				  when trim(ifnull(cat_image,'')) = '' then 'default_cat_image.png'
 				  else trim(ifnull(cat_image,''))
-				end cat_image
+				end cat_image, cat_desc
 		  from  tblcategories
 		 where  cat_status = 'A'
 		   and  cat_lvl = 3
@@ -90,7 +90,7 @@
 	?> 
 
     <section class="inside-page-banner">
-        <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
+        <img class="img-fluid" src="images/calculator-banner.png" alt="inside-page">
     </section>
 
 
@@ -320,7 +320,7 @@
                                     <div class="calculator-form-details-box">
 										<div class="header-text"> Select Product </div>
 										<div class="form-block">
-											<div class="calculator-form-box">
+											<div class="calculator-form-box product-name-select">
                                                 <label>Product Name:</label>
                                                 <select class="form-control" id="cboProduct" onChange="loadProduct()" >
 													<option value="0" >Select Product</option>
@@ -332,7 +332,7 @@
 
                                             <div class="calculator-form-box">
                                                 <label>Length:</label>
-                                                <input id="product_length" name="product_length" readonly class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_length" name="product_length" readonly class="form-control" type="text" placeholder="Enter value">
 												
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
@@ -342,7 +342,7 @@
 
                                             <div class="calculator-form-box">
                                                 <label>Width:</label>
-                                                <input id="product_width" name="product_width" readonly class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_width" name="product_width" readonly class="form-control" type="text" placeholder="Enter value">
 												
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
@@ -352,7 +352,7 @@
 
                                             <div class="calculator-form-box">
                                                 <label>Depth:</label>
-                                                <input id="product_depth" name="product_depth" readonly class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="product_depth" name="product_depth" readonly class="form-control" type="text" placeholder="Enter value">
 												
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
@@ -386,7 +386,7 @@
 
                                             <div class="calculator-form-box">
                                                 <label>Length:</label>
-                                                <input id="usr_product_length" name="usr_product_length" class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="usr_product_length" name="usr_product_length" class="form-control" type="text" placeholder="Enter value">
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
                                                 </select>
@@ -394,7 +394,7 @@
 											
 											<div class="calculator-form-box">
                                                 <label>Width:</label>
-                                                <input id="usr_product_width" name="usr_product_width" class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="usr_product_width" name="usr_product_width" class="form-control" type="text" placeholder="Enter value">
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
                                                 </select>
@@ -402,7 +402,7 @@
 
                                             <div class="calculator-form-box">
                                                 <label>Depth:</label>
-                                                <input id="usr_product_depth" name="usr_product_depth" class="form-control" type="text" placeholder="Enter Valu">
+                                                <input id="usr_product_depth" name="usr_product_depth" class="form-control" type="text" placeholder="Enter value">
                                                 <select class="form-control" id="exampleFormControlSelect1">
                                                   <option >ft</option>
                                                 </select>
@@ -426,18 +426,29 @@
                             <!------step7--last--->
                             <div class="card-body pt-0 calculate-result-block" id="divContainerCalculation" >
                                 <h4 class="heading mb-4 pb-1">Your Calculate Result</h4>
-                                <div class="row justify-content-start px-3">
-                                    <div class="calculate-result-box">
-                                        <div class="result-details">
-                                            <p>Unit Price : <b id="spanUnitPrice"></b> </p>
-
-                                            <p>Square feet calculator: <b id="spanSquareFeetCalculator"></b></p>
-
-                                            <p>Quantity Required : <b id="spanQuantityRequired"></b> </p>
+                                <div class="calculate-result-box">
+                                    <div class="row justify-content-start px-3">
+                                        <div class="col-sm-6">
+                                            <div class="calculate-result-image-box">
+                                                <img src="images/calculator/2.jpg" alt="">
+                                            </div>
                                         </div>
-                                        <div class="total-coust"  >Total Cost: <b id="spanTotalCost"></b></div>
-                                    </div>
+                                        <div class="col-sm-6">                                            
+                                            <div class="result-details">
+                                                <p>Unit Price : <b id="spanUnitPrice"></b> </p>
+
+                                                <p>Square feet calculator: <b id="spanSquareFeetCalculator"></b></p>
+
+                                                <p>Quantity Required : <b id="spanQuantityRequired"></b> </p>
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="total-coust"  >Total Cost: <b id="spanTotalCost"></b></div>
+                                        </div>
+                                    </div> 
                                 </div>
+								<div class="row justify-content-start px-3" id="state_desc" >
+								</div>
                                 <div class="row justify-content-center"> <img src="images/calculator/result.gif" class="check"> </div>
                             </div>
                             <!------step7----->
@@ -460,6 +471,25 @@
 
         </div>
     </section>
+	
+	
+	<!-- Modal -->
+	<div id="modDesc" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-body">
+			<h4 id="spnModHeader" ></h4>
+			<p id="spnModDesc" ></p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
 
 
 
@@ -472,14 +502,23 @@
     <!----menu--->
     <script>
         $(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
+			var scroll = $(window).scrollTop();
 
-    if (scroll >= 150) {
-        $(".navwrap").addClass("darkHeader");
-    } else {
-        $(".navwrap").removeClass("darkHeader");
-    }
-});
+			if (scroll >= 150) {
+				$(".navwrap").addClass("darkHeader");
+			} else {
+				$(".navwrap").removeClass("darkHeader");
+			}
+		});
+		
+		jQuery(document).on('click','.open_desc',function(){
+		
+			jQuery('#spnModHeader').html(jQuery(this).data('mod_header'));
+			jQuery('#spnModDesc').html(jQuery(this).data('mod_desc'));
+			jQuery('#modDesc').modal('show');
+			
+		});
+		
     </script>
 
     <!----menu---end-->
@@ -494,7 +533,7 @@
 		$strComma = '';
 		for($iRow=0;$iRow<=count($dtState)-1;$iRow++)
 		{
-			echo $strComma.'{"state_id":"'.$dtState[$iRow]['state_id'].'","zone_id":"'.$dtState[$iRow]['zone_id'].'","state_name":"'.$dtState[$iRow]['state_name'].'","state_image":"'.$dtState[$iRow]['state_image'].'"}';
+			echo $strComma.'{"state_id":"'.$dtState[$iRow]['state_id'].'","zone_id":"'.$dtState[$iRow]['zone_id'].'","state_name":"'.$dtState[$iRow]['state_name'].'","state_image":"'.$dtState[$iRow]['state_image'].'","state_desc":"'.$dtState[$iRow]['state_desc'].'"}';
 			$strComma = ',';
 		}
 		?>
@@ -527,7 +566,7 @@
 		$strComma = '';
 		for($iRow=0;$iRow<=count($dtCat3)-1;$iRow++)
 		{
-			echo $strComma.'{"id":"'.$dtCat3[$iRow]['id'].'","cat_parent_id":"'.$dtCat3[$iRow]['cat_parent_id'].'","cat_name":"'.$dtCat3[$iRow]['cat_name'].'","cat_image":"'.$dtCat3[$iRow]['cat_image'].'"}';
+			echo $strComma.'{"id":"'.$dtCat3[$iRow]['id'].'","cat_parent_id":"'.$dtCat3[$iRow]['cat_parent_id'].'","cat_name":"'.$dtCat3[$iRow]['cat_name'].'","cat_image":"'.$dtCat3[$iRow]['cat_image'].'","cat_desc":"'.$dtCat3[$iRow]['cat_desc'].'"}';
 			$strComma = ',';
 		}
 		?>
@@ -663,6 +702,10 @@
 							strDesign += '	<div class="radio-image-text-block">';
 							strDesign += '		<div class="pic"> <img src="admin/state_image/'+arr_state[iRow]['state_image']+'" class="pic-0"> </div>';
 							strDesign += '		<h5 class="mb-4">'+arr_state[iRow]['state_name']+'</h5>';
+							
+							var state_desc = arr_state[iRow]['state_desc'];
+							strDesign += '		<p class="mb-4" >'+state_desc.substring(0, 100)+'<a class="open_desc" data-mod_header="'+arr_state[iRow]['state_name']+'" data-mod_desc="'+arr_state[iRow]['state_desc']+'" href="javascript:void(0);" >[...]</a></p>';
+							
 							strDesign += '	</div>';
 							strDesign += '</div>';
 						}
@@ -754,6 +797,10 @@
 							strDesign += '	<div class="radio-image-text-block">';
 							strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat3[iRow]['cat_image']+'" class="pic-0"> </div>';
 							strDesign += '		<h5 class="mb-4">'+arr_cat3[iRow]['cat_name']+'</h5>';
+							
+							var cat_desc = arr_cat3[iRow]['cat_desc'];
+							strDesign += '		<p class="mb-4" >'+cat_desc.substring(0, 100)+'<a class="open_desc" data-mod_header="'+arr_cat3[iRow]['cat_name']+'" data-mod_desc="'+arr_cat3[iRow]['cat_desc']+'" href="javascript:void(0);" >[...]</a></p>';
+							
 							strDesign += '	</div>';
 							strDesign += '</div>';
 						}
@@ -832,19 +879,19 @@
 					jQuery('#spanQuantityRequired').html(iTotalNoProduct+' pc');
 					jQuery('#spanTotalCost').html('Rs '+parseInt(iTotalNoProduct)*parseInt(product_price));
 					
-					
 					/*
-					strDesign = '<option value="0" >Select Product</option>';
-					for(iRow=0;iRow<=arr_product.length-1;iRow++)
+					for(iRow=0;iRow <= arr_state.length-1;iRow++)
 					{
-						if(arr_product[iRow]['cat_id']==cat_id3)
-						{
-							strDesign += '<option value="'+arr_product[iRow]['product_id']+'" >'+arr_product[iRow]['product_name']+'</option>';
-						}
-					}
 					
-					jQuery('#cboProduct').html(strDesign);
+						if(arr_state[iRow]['state_id'] == state_id)
+						{
+							jQuery('#state_desc').html('<h1>'+arr_state[iRow]['state_name']+'</h1><p>'+arr_state[iRow]['state_desc']+'</p>');
+						}
+						
+					}
 					*/
+					
+					
 					
 				}
 				else

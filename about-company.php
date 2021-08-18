@@ -14,7 +14,8 @@
     <?php include("include/header.php");?> 
 
     <section class="inside-page-banner">
-        <img class="img-fluid" src="images/insidepage-banner.png" alt="inside-page">
+        <img class="img-fluid" src="images/about-company-banner.png" alt="inside-page">
+        <h5 class="inside-page-banner-text">Our World</h5>
     </section>
 
 

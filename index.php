@@ -396,7 +396,7 @@
       </section>
       <section class="ceowrap">
         <div class="box2">
-            <img src="images/nsrcel-main-logo.png" class="img-fluid">
+            <img src="images/nsrcel-main-logo.jpg" class="img-fluid">
         </div>
         <div class="box3">
             <h2>Who <span>are We</span></h2>

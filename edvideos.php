@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,25 +14,21 @@
   </head>
   <body>
      
-    <?php include("include/header.php");?> 
+    <?php include("include/header.php");
+	
+	
+	$strSql = "
+	SELECT * FROM `tblvideos` WHERE status = 1
+	";
+	$dtTmp = getDatatable($strSql);
+
+	?> 
 
     <section class="inside-page-banner">
-        <div class="owl-carousel owl-theme">
-            <div class="item blackbg">
-                <img class="img-fluid" src="images/inside-page-banner-1.jpg" alt="First slide">
-                <div class="carousel-caption">
-                    <h5>Contrary to <span>popular</span></h5>
-                </div>
-            </div>
-
-            <div class="item blackbg">
-                <img class="img-fluid" src="images/inside-page-banner-2.jpg" alt="First slide">
-                <div class="carousel-caption">
-                    <h5>Contrary to <span>popular</span></h5>
-                </div>
-            </div>
-        </div>
+        <img class="img-fluid" src="images/video-banner.png" alt="inside-page">
+        <h5 class="inside-page-banner-text">Expand your knowledge</h5>
     </section>
+
 
 
     <section class="insidepage-content-block edvideos">
@@ -37,129 +36,35 @@
             <div class="main-titel-block">
                 <h2>ED <span>Videos</span></h2>
             </div>
+            <div class="insidepage-description-block">
+                <p>All About Architecture is an integrated community designed to share knowledge, information related to sustainable ways of building cities and facilitate people taking the future-ready decision fo the welfare of our society. Subscribe to find informative videos and share videos on your product for the ultimate reach and display.</p>
+            </div>
+            
             <div class="workshop-block">
                 
                 <!---workshop-all-box-->
                 <div class="workshop-all-boxs">
                     <div class="row">
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/workshops-image-1.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/recent-product2.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/recent-product1.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/mostviewed2.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/workshops-image-3.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a data-toggle="modal" data-target="#modal4"> 
-                                <div class="card workshop-box">
-                                    <div class="workshop-image">
-                                        <img src="images/workshops-image-2.jpg" class="card-img-top" alt="workshops banner">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Workshop title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content to build on the card.</p>
-                                    </div>
-                                </div>
-                            </a> 
-                        </div>
-
-
-
-
-
-
+						<?php
+						for($iRow=0;$iRow<=count($dtTmp)-1;$iRow++)
+						{
+							echo '
+							<div class="col-sm-6 col-md-4">
+								<a data-toggle="modal" class="edvideo_click" data-link="'.$dtTmp[$iRow]['link'].'" > 
+									<div class="card workshop-box">
+										<div class="workshop-image">
+											<img src="images/ed-noimage.png" class="card-img-top" alt="'.$dtTmp[$iRow]['title'].'">
+										</div>
+										<div class="card-body">
+											<h5 class="card-title">'.$dtTmp[$iRow]['title'].'</h5>
+											<p class="card-text">'.$dtTmp[$iRow]['description'].'</p>
+										</div>
+									</div>
+								</a> 
+							</div>
+							';
+						}
+						?>
                     </div>
                 </div>
                 <!---workshop-all-box-->
@@ -176,8 +81,9 @@
       <div class="modal-body mb-0 p-0">
 
         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"
+          <iframe class="embed-responsive-item" id="modIframe" src="https://www.youtube.com/embed/EI-AxklgY-0"
             allowfullscreen></iframe>
+			
         </div>
 
       </div>
@@ -263,19 +169,26 @@
 
 <script type="text/javascript">
     $('#modal1').on('hidden.bs.modal', function (e) {
-  // do something...
-  $('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
-});
+	  // do something...
+	  $('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
+	});
 
-$('#modal6').on('hidden.bs.modal', function (e) {
-  // do something...
-  $('#modal6 iframe').attr("src", $("#modal6 iframe").attr("src"));
-});
+	$('#modal6').on('hidden.bs.modal', function (e) {
+	  // do something...
+	  $('#modal6 iframe').attr("src", $("#modal6 iframe").attr("src"));
+	});
 
-$('#modal4').on('hidden.bs.modal', function (e) {
-  // do something...
-  $('#modal4 iframe').attr("src", $("#modal4 iframe").attr("src"));
-});
+	$('#modal4').on('hidden.bs.modal', function (e) {
+	  // do something...
+	  $('#modal4 iframe').attr("src", $("#modal4 iframe").attr("src"));
+	});
+
+	jQuery(document).on('click','.edvideo_click',function(){
+		console.log(jQuery(this).data('link'));
+		jQuery('#modIframe').attr('src',jQuery(this).data('link'));
+		jQuery('#modal4').modal('show');
+	});
+
 </script>
 
 
