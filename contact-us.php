@@ -113,6 +113,8 @@
 
 
                        <div class="row">
+
+                          <!--
                           <div class="col-sm-4">
                              <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
@@ -122,18 +124,23 @@
                                    <p><span>Address:</span> 98, D, N.S.C Bose Road, Kolkata</p>
                                 </div>
                              </div>
-                          </div>
-                          <div class="col-sm-4">
+                          </div>-->
+
+
+                          <div class="col-sm-6">
+                            <a href="https://wa.me/9007159440" target="_blank" title="click to open whatsapp chat">
                              <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                   <span class="fa fa-phone"></span>
+                                   <span class="fab fa-whatsapp"></span>
                                 </div>
                                 <div class="text">
-                                   <p><span>Phone:</span> <a href="tel:9007159440">+ 91-9007159440</a></p>
+                                   <p><span>WhatsApp:</span> <a href="tel:9007159440">+ 91-9007159440</a></p>
                                 </div>
                              </div>
+                           </a>
                           </div>
-                          <div class="col-sm-4">
+
+                          <div class="col-sm-6">
                              <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
                                    <span class="fa fa-paper-plane"></span>

@@ -18,7 +18,7 @@
 
     <section class="inside-page-banner">
         <img class="img-fluid" src="images/faq-banner.png" alt="inside-page">
-        <h5 class="inside-page-banner-text">Frequently Asked Questions </h5>
+        <h5 class="inside-page-banner-text">Get to know us a bit better</h5>
     </section>
 
 

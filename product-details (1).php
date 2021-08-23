@@ -934,34 +934,7 @@
     <!----menu---end-->
 
 
-<style type="text/css" media="screen">
-body{
-  padding-left: 100px;
-}
-body.sidebar-open {
-    padding-left: 320px;
-}
 
-.navwrap {
-    width: 100%;
-    display: block;
-    position: fixed;
-    padding: 15px 0;
-    top: 0;
-    z-index: 9999;
-    left: 0;
-    background: #fff;
-}
-
-.topnav li a{
-  color: #222222;
-}
-
-.modal{
-  z-index: 9999;
-}
-
-</style>
 
 
   </body>

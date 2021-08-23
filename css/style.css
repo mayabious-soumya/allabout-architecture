@@ -328,7 +328,7 @@ body {
 }
 .home-workshop h2 {
   display: block;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: lighter;
   padding-left: 25px;
   color: #4b4e53;
@@ -403,7 +403,7 @@ body {
 .home-recent-product h3 {
   text-transform: uppercase;
   color: #4b4e53;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: lighter;
   padding: 30px 0;
 }
@@ -448,6 +448,12 @@ body {
   font-weight: normal;
   padding: 15px 10px;
   color: #fff;
+}
+
+.owl-carousel .owl-item a{
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
 }
 
 .owl-carousel-2 {
@@ -6262,8 +6268,8 @@ border-radius: 8px;
 
 .calculator-block .card-block .radio-image-text-block h5{
   width: 100%;
-  font-size: 16px;
-  padding: 0!important;
+  font-size: 20px;
+  padding: 15px 15px 8px 15px !important;
   margin: 0 !important;
   border: none;
   outline: none;
@@ -6272,8 +6278,8 @@ border-radius: 8px;
   line-height: 30px;
   text-align: center;
   white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 
@@ -6284,8 +6290,10 @@ border-radius: 8px;
 
 .calculator-block .card-block .radio-image-text-block p{
   width: 100%;
-  font-size: 12px;
-  padding: 8px 0 0 0 !important;
+  color: #414042;
+  font-size: 15px;
+  line-height: 26px;
+  padding: 0 15px 15px 15px !important;
   margin: 0 !important;
   border: none;
   outline: none;
@@ -6294,6 +6302,32 @@ border-radius: 8px;
   line-height: normal;
   text-align: left;
 }
+.calculator-block .calculator-badge-block{
+  width: 100%;
+  padding: 0 15px 8px 15px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.calculator-block .calculator-badge-block .badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    padding: 4px 8px;
+    margin: 2px;
+}
+
+.calculator-block .select-your-state .card-block, .calculator-block .material-block .card-block{
+  width: 45%;
+}
+
+.calculator-block .select-your-state .card-block .radio-image-text-block p, .calculator-block .material-block .card-block .radio-image-text-block p{
+  text-align: justify;
+}
+
+
 
 .calculator-block .radio.selected .radio-image-text-block p{
   color: #ffffff;
@@ -6531,9 +6565,14 @@ border-radius: 8px;
   margin: 0;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   font-weight: 600;
+}
+
+.calculate-result-box .result-details p{
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
 .calculate-result-box .total-coust{
@@ -6961,18 +7000,34 @@ border-radius: 8px;
 /*/////////*/
 
 .youtub-video-banner{
-    position: relative;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
 }
-.video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.youtub-video-banner video{
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
 }
+
+video::-internal-media-controls-download-button {
+  display:none;
+ }
+
+ video::-webkit-media-controls-enclosure {
+      overflow:hidden;
+ }
+
+ video::-webkit-media-controls-panel {
+      width: calc(100% + 30px); 
+ }
+   
 
 /*///////*/
 
@@ -7087,4 +7142,37 @@ border-radius: 8px;
 
 .product-save-message span{
   padding-left: 8px;
+}
+
+
+/*header*/
+.main-header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.main-header .header-text h2 {
+  font-size: 32px;
+  color: #4b4e53;
+  font-weight: lighter;
+  line-height: 1.2;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+.main-header .header-text h2 span {
+  font-weight: bold;
+}
+.header-text hr {
+  width: 50px;
+  height: 2px;
+  background: #4b4e53;
+  float: left;
 }

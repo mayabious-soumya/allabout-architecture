@@ -75,23 +75,6 @@
 	$dtCat3 = getDatatable($strSql);
 	
 	$strSql = "
-		select  cat.id, 
-				case 
-				  when ctype.ctype_name = 'ENV' then 'Environment'
-				  when ctype.ctype_name = 'S' then 'Social'
-				  when ctype.ctype_name = 'ECO' then 'Economical'
-				  else ''
-				end
-				 ctype_name
-		  from  tblcategories cat
-    inner join  tblcategories_type ctype on cat.id = ctype.cat_id
-		 where  cat.cat_status = 'A'
-		   and  cat.cat_lvl = 3
-	  order by  cat.id
-	";
-	$dtCat3Type = getDatatable($strSql);
-	
-	$strSql = "
 			select  pr.product_id, pr.product_name, pr.product_picture, pr.product_price, cat.id,
 					pr.product_length, pr.product_width, pr.product_depth
 			  from  tblproduct pr
@@ -141,13 +124,13 @@
                             </div>
                             <div class="row d-flex justify-content-sm-end justify-content-start px-5">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-sm-end justify-content-start px-5">
                                 <div class="count text-center">
                                     <p class="mb-sm-0 pb-sm-0">
-                                        <strong><span id="cnt">0</span>%</strong> 
+                                        <strong><span id="cnt">25</span>%</strong> 
                                         <span>Completed</span>
                                     </p>
                                 </div>
@@ -447,18 +430,11 @@
                                     <div class="row justify-content-start px-3">
                                         <div class="col-sm-6">
                                             <div class="calculate-result-image-box">
-                                                <img id="imgProductFinal" src="" alt="">
+                                                <img src="images/calculator/2.jpg" alt="">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">                                            
                                             <div class="result-details">
-                                                <p>Zone Name : <b id="spanZoneName"></b> </p>
-                                                <p>State Name : <b id="spanStateName"></b> </p>
-                                                <p>Type : <b id="spanType"></b> </p>
-                                                <p>Location : <b id="spanLocation"></b> </p>
-                                                <p>Material : <b id="spanMaterial"></b> </p>
-                                                <p>Product : <b id="spanProduct"></b> </p>
-												
                                                 <p>Unit Price : <b id="spanUnitPrice"></b> </p>
 
                                                 <p>Square feet calculator: <b id="spanSquareFeetCalculator"></b></p>
@@ -596,17 +572,6 @@
 		?>
 		];
 		
-		var arr_cat3Type = [ 
-		<?php
-		$strComma = '';
-		for($iRow=0;$iRow<=count($dtCat3Type)-1;$iRow++)
-		{
-			echo $strComma.'{"id":"'.$dtCat3Type[$iRow]['id'].'","ctype_name":"'.$dtCat3Type[$iRow]['ctype_name'].'"}';
-			$strComma = ',';
-		}
-		?>
-		];
-		
 		var arr_product = [ 
 		<?php
 		$strComma = '';
@@ -620,10 +585,6 @@
       
 		var zone_id = 0;
 		var zone_name = '';
-		var state_name = '';
-		var cat_name1 = '';
-		var cat_name2 = '';
-		var cat_name3 = '';
 		var state_id = 0;
 		var cat_id1 = 0;
 		var cat_id2 = 0;
@@ -703,35 +664,19 @@
 		
 		jQuery(document).on('click','.state_name',function(){
 			state_id = jQuery(this).data('state_id');
-			state_name = jQuery(this).data('state_name');
 		});
 		
 		jQuery(document).on('click','.cat_name1',function(){
-		
 			cat_id1 = jQuery(this).data('cat_id1');
-			cat_name1 = jQuery(this).data('cat_name');
-			
-			cat_id2 = jQuery(this).find('.cat2').val();
-			for(iRowCount=0;iRowCount<=arr_cat2.length-1;iRowCount++)
-			{
-				if(arr_cat2[iRowCount]['id']==cat_id2)
-				{
-					cat_name2 = arr_cat2[iRowCount]['cat_name'];
-				}
-			
-			}
-			
 		});
 		
-		/*
 		jQuery(document).on('click','.cat_name2',function(){
 			cat_id2 = jQuery(this).data('cat_id2');
 		});
-		*/
 		
 		jQuery(document).on('click','.cat_name3',function(){
 			cat_id3 = jQuery(this).data('cat_id3');
-			cat_name3 = jQuery(this).data('cat_name');
+			console.log(cat_id3);
 		});
 		
 		jQuery(document).on('click','.btnNext',function(){
@@ -740,9 +685,6 @@
 			{
 				if(zone_id > 0)
 				{
-					jQuery('#cnt').html('20');
-					jQuery('.progress-bar-striped').css('width','20%');
-					
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerState').addClass('show');
 					
@@ -753,17 +695,16 @@
 					{
 						if(arr_state[iRow]['zone_id']==zone_id)
 						{
-							strDesign += '<div class="card-block radio state_name" data-state_name="'+arr_state[iRow]['state_name']+'" data-state_id="'+arr_state[iRow]['state_id']+'" >';
+							strDesign += '<div class="card-block radio state_name" data-state_id="'+arr_state[iRow]['state_id']+'" >';
 							strDesign += '	<div class="radio-top-round-icon">';
 							strDesign += '		<div class="fa fa-circle"></div>';
 							strDesign += '	</div>';
 							strDesign += '	<div class="radio-image-text-block">';
-							//strDesign += '		<div class="pic"> <img src="admin/state_image/'+arr_state[iRow]['state_image']+'" class="pic-0"> </div>';
+							strDesign += '		<div class="pic"> <img src="admin/state_image/'+arr_state[iRow]['state_image']+'" class="pic-0"> </div>';
 							strDesign += '		<h5 class="mb-4">'+arr_state[iRow]['state_name']+'</h5>';
 							
-							var state_desc = arr_state[iRow]['state_desc']; // state_desc.substring(0, 100)
-							//strDesign += '		<p class="mb-4" >'+state_desc+'<a class="open_desc" data-mod_header="'+arr_state[iRow]['state_name']+'" data-mod_desc="'+arr_state[iRow]['state_desc']+'" href="javascript:void(0);" >[...]</a></p>';
-							strDesign += '		<p class="mb-4" >'+state_desc+'</p>';
+							var state_desc = arr_state[iRow]['state_desc'];
+							strDesign += '		<p class="mb-4" >'+state_desc.substring(0, 100)+'<a class="open_desc" data-mod_header="'+arr_state[iRow]['state_name']+'" data-mod_desc="'+arr_state[iRow]['state_desc']+'" href="javascript:void(0);" >[...]</a></p>';
 							
 							strDesign += '	</div>';
 							strDesign += '</div>';
@@ -782,34 +723,19 @@
 			{
 				if(state_id > 0)
 				{
-					jQuery('#cnt').html('40');
-					jQuery('.progress-bar-striped').css('width','40%');
-					
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerCat1').addClass('show');
 					
 					strDesign = '';
 					for(iRow=0;iRow<=arr_cat1.length-1;iRow++)
 					{
-						strDesign += '<div class="card-block radio cat_name1" data-cat_name="'+arr_cat1[iRow]['cat_name']+'" data-cat_id1="'+arr_cat1[iRow]['id']+'" >';
+						strDesign += '<div class="card-block radio cat_name1" data-cat_id1="'+arr_cat1[iRow]['id']+'" >';
 						strDesign += '	<div class="radio-top-round-icon">';
 						strDesign += '		<div class="fa fa-circle"></div>';
 						strDesign += '	</div>';
 						strDesign += '	<div class="radio-image-text-block">';
 						strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat1[iRow]['cat_image']+'" class="pic-0"> </div>';
 						strDesign += '		<h5 class="mb-4">'+arr_cat1[iRow]['cat_name']+'</h5>';
-						strDesign += '		<select class="cat2">';
-						
-						for(iRowCount=0;iRowCount<=arr_cat2.length-1;iRowCount++)
-						{
-							if(arr_cat2[iRowCount]['cat_parent_id']==arr_cat1[iRow]['id'])
-							{
-						strDesign += '		<option value="'+arr_cat2[iRowCount]['id']+'">'+arr_cat2[iRowCount]['cat_name']+'</option>';	
-							}
-						
-						}
-						
-						strDesign += '		</select>';
 						strDesign += '	</div>';
 						strDesign += '</div>';
 					}
@@ -821,14 +747,10 @@
 					alert('Please Select State');
 				}
 			}
-			/*
 			else if(jQuery(this).data('action')=='cat1')
 			{
 				if(cat_id1 > 0)
 				{
-					jQuery('#cnt').html('60');
-					jQuery('.progress-bar-striped').css('width','60%');
-					
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerCat2').addClass('show');
 					
@@ -856,15 +778,10 @@
 					alert('Please Select Type');
 				}
 			}
-			*/
-			//else if(jQuery(this).data('action')=='cat2')
-			else if(jQuery(this).data('action')=='cat1')
+			else if(jQuery(this).data('action')=='cat2')
 			{
 				if(cat_id2 > 0)
 				{
-					jQuery('#cnt').html('60');
-					jQuery('.progress-bar-striped').css('width','80%');
-					
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerCat3').addClass('show');
 					
@@ -873,26 +790,16 @@
 					{
 						if(arr_cat3[iRow]['cat_parent_id']==cat_id2)
 						{
-							strDesign += '<div class="card-block radio cat_name3" data-cat_name="'+arr_cat3[iRow]['cat_name']+'" data-cat_id3="'+arr_cat3[iRow]['id']+'" >';
+							strDesign += '<div class="card-block radio cat_name3" data-cat_id3="'+arr_cat3[iRow]['id']+'" >';
 							strDesign += '	<div class="radio-top-round-icon">';
 							strDesign += '		<div class="fa fa-circle"></div>';
 							strDesign += '	</div>';
 							strDesign += '	<div class="radio-image-text-block">';
-							//strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat3[iRow]['cat_image']+'" class="pic-0"> </div>';
+							strDesign += '		<div class="pic"> <img src="admin/catimage/'+arr_cat3[iRow]['cat_image']+'" class="pic-0"> </div>';
 							strDesign += '		<h5 class="mb-4">'+arr_cat3[iRow]['cat_name']+'</h5>';
 							
-							strDesign += '	<div class="calculator-badge-block">';
-							for(iRowCount=0;iRowCount<=arr_cat3Type.length-1;iRowCount++)
-							{
-								if(arr_cat3Type[iRowCount]['id']==arr_cat3[iRow]['id'])
-								{
-									strDesign += '	<span class="cat_type badge badge-secondary">'+arr_cat3Type[iRowCount]['ctype_name']+'</span>';
-								}
-							}
-							strDesign += '	</div>';
-							
-							var cat_desc = arr_cat3[iRow]['cat_desc']; // cat_desc.substring(0, 100)
-							strDesign += '		<p class="mb-4" >'+cat_desc+'</p>';
+							var cat_desc = arr_cat3[iRow]['cat_desc'];
+							strDesign += '		<p class="mb-4" >'+cat_desc.substring(0, 100)+'<a class="open_desc" data-mod_header="'+arr_cat3[iRow]['cat_name']+'" data-mod_desc="'+arr_cat3[iRow]['cat_desc']+'" href="javascript:void(0);" >[...]</a></p>';
 							
 							strDesign += '	</div>';
 							strDesign += '</div>';
@@ -910,9 +817,6 @@
 			{
 				if(cat_id3 > 0)
 				{
-					jQuery('#cnt').html('80');
-					jQuery('.progress-bar-striped').css('width','90%');
-					
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerProduct').addClass('show');
 					
@@ -947,20 +851,10 @@
 			{
 				if(product_id > 0)
 				{
-					jQuery('#cnt').html('100');
-					jQuery('.progress-bar-striped').css('width','100%');
-					
 					iTotalNoProduct = 0;
 					usr_product_length = jQuery('#usr_product_length').val();
 					usr_product_width = jQuery('#usr_product_width').val();
 					usr_product_depth = jQuery('#usr_product_depth').val();
-					
-					jQuery('#spanZoneName').html('');
-					jQuery('#spanStateName').html('');
-					jQuery('#spanType').html('');
-					jQuery('#spanLocation').html('');
-					jQuery('#spanMaterial').html('');
-					jQuery('#spanProduct').html('');
 					
 					jQuery('#spanUnitPrice').html('');
 					jQuery('#spanSquareFeetCalculator').html('');
@@ -979,21 +873,6 @@
 				
 					jQuery(this).parents('div.card-body').removeClass('show');
 					jQuery('#divContainerCalculation').addClass('show');
-					
-					
-					for(iRow=0;iRow<=arr_product.length-1;iRow++)
-					{
-						if(arr_product[iRow]['product_id']==jQuery('#cboProduct').val())
-						{
-							jQuery('#spanProduct').html(arr_product[iRow]['product_name']);
-						}
-					}
-					jQuery('#spanZoneName').html(zone_name);
-					jQuery('#spanStateName').html(state_name);
-					jQuery('#spanType').html(cat_name1);
-					jQuery('#spanLocation').html(cat_name2);
-					jQuery('#spanMaterial').html(cat_name3);
-					
 					
 					jQuery('#spanUnitPrice').html('Rs '+product_price);
 					jQuery('#spanSquareFeetCalculator').html(Math.round(parseFloat(usr_product_length)*parseFloat(usr_product_width))+' sqft');
@@ -1047,7 +926,6 @@
 					if(arr_product[iRow]['product_id']==jQuery('#cboProduct').val())
 					{
 						jQuery('#imgProduct').attr('src','admin/uploads/product/'+arr_product[iRow]['product_picture']);
-						jQuery('#imgProductFinal').attr('src','admin/uploads/product/'+arr_product[iRow]['product_picture']);
 						jQuery('#product_length').val(arr_product[iRow]['product_length']);
 						jQuery('#product_width').val(arr_product[iRow]['product_width']);
 						
@@ -1077,9 +955,6 @@
 		
 			if(jQuery(this).data('action')=='state')
 			{
-				jQuery('#cnt').html('0');
-				jQuery('.progress-bar-striped').css('width','0%');
-					
 				jQuery(this).parents('div.card-body').removeClass('show');
 				jQuery('#divContainerZone').addClass('show');
 				
@@ -1089,9 +964,6 @@
 			}
 			else if(jQuery(this).data('action')=='cat1')
 			{
-				jQuery('#cnt').html('20');
-				jQuery('.progress-bar-striped').css('width','20%');
-				
 				jQuery(this).parents('div.card-body').removeClass('show');
 				jQuery('#divContainerState').addClass('show');
 				
@@ -1099,12 +971,8 @@
 				//zone_name = '';
 		
 			}
-			//else if(jQuery(this).data('action')=='cat2')
-			else if(jQuery(this).data('action')=='cat3')
+			else if(jQuery(this).data('action')=='cat2')
 			{
-				jQuery('#cnt').html('40');
-				jQuery('.progress-bar-striped').css('width','40%');
-				
 				jQuery(this).parents('div.card-body').removeClass('show');
 				jQuery('#divContainerCat1').addClass('show');
 				
@@ -1112,12 +980,8 @@
 				//zone_name = '';
 		
 			}
-			/*
 			else if(jQuery(this).data('action')=='cat3')
 			{
-				jQuery('#cnt').html('60');
-				jQuery('.progress-bar-striped').css('width','60%');
-				
 				jQuery(this).parents('div.card-body').removeClass('show');
 				jQuery('#divContainerCat2').addClass('show');
 				
@@ -1125,12 +989,8 @@
 				//zone_name = '';
 		
 			}
-			*/
 			else if(jQuery(this).data('action')=='product')
 			{
-				jQuery('#cnt').html('60');
-				jQuery('.progress-bar-striped').css('width','80%');
-				
 				jQuery(this).parents('div.card-body').removeClass('show');
 				jQuery('#divContainerCat3').addClass('show');
 				

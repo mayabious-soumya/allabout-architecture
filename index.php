@@ -56,54 +56,15 @@
   
   ?> 
 
-        <div id="carouselExampleIndicators" class="carousel carousel-fade" data-ride="carousel">
-        <!-- <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol> -->
-        <div class="carousel-inner">
-
-          <div class="carousel-item active">
-            <div class="youtub-video-banner">
-              <iframe width="560" height="315" class="video" src="https://www.youtube.com/embed/56Fzqq5vyrM?controls=1&autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <img class="img-fluid" src="images/banner1.jpg" alt="First slide">
-            <div class="carousel-caption">
-                <h5>Contrary to <span>popular</span></h5>
-                <p>Branding &nbsp;  / &nbsp;  design &nbsp;  /  &nbsp; devlopment</p>
-                <a href="#">Know More</a>
-              </div>
-          </div>
-          <div class="carousel-item blackbg">
-            <img class="img-fluid" src="images/banner2.jpg" alt="Second slide">
-            <div class="carousel-caption">
-                <h5>Contrary to <span>popular</span></h5>
-                <p>Branding &nbsp;  / &nbsp;  design &nbsp;  /  &nbsp; devlopment</p>
-                <a href="#">Know More</a>
-              </div>
-          </div>
-          <div class="carousel-item blackbg">
-            <img class="img-fluid" src="images/banner1.jpg" alt="Third slide">
-            <div class="carousel-caption">
-                <h5>Contrary to <span>popular</span></h5>
-                <p>Branding &nbsp;  / &nbsp;  design &nbsp;  /  &nbsp; devlopment</p>
-                <a href="#">Know More</a>
-              </div>
-          </div>
+        <div class="youtub-video-banner">
+          <video controls autoplay muted loop controlsList="nodownload">
+            <source src="images/home-page-video.mp4" type="video/mp4">
+            <source src="images/home-page-video.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+
+        
 
 
       <section class="home-wrap1 whatwedo-main-block">
@@ -115,6 +76,7 @@
               <hr>
             </div>
           </div>
+
           <div class="home-whatwedo-block">
             <div class="row">
 
@@ -220,7 +182,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Why <span>We Do</span></h2>
+                  <div class="main-header">
+                    <div class="header-text">
+                      <h2>Why <span>We Do</span></h2>
+                      <hr>
+                    </div>
+                  </div>
+  
                 </div>
                 <div class="col-sm-4">
                     <img src="images/sdg4.png" class="img-fluid">
@@ -287,8 +255,8 @@
 			{
 				echo '
 				<div>
-					<img src="images/recent-product1.jpg" class="img-fluid">
-					<h3>'.$dtRecentProduct[$iRow]['product_name'].'</h3>
+					<img src="admin/uploads/product/'.$dtRecentProduct[$iRow]['product_picture'].'" class="img-fluid">
+					<h3><a href="product-details.php?p='.$dtRecentProduct[$iRow]['product_id'].'" >'.$dtRecentProduct[$iRow]['product_name'].'</a></h3>
 				</div>
 				';	
 			}
@@ -426,8 +394,8 @@
 			{
 				echo '
 				<div>
-					<img src="images/mostviewed1.jpg" class="img-fluid">
-					<h3>'.$dtMostViewed[$iRow]['product_name'].'</h3>
+					<img src="admin/uploads/product/'.$dtMostViewed[$iRow]['product_picture'].'" class="img-fluid">
+					<h3><a href="product-details.php?p='.$dtMostViewed[$iRow]['product_id'].'" >'.$dtMostViewed[$iRow]['product_name'].'</a></h3>
 				</div>
 				';
 			}
@@ -580,6 +548,9 @@ $('.owl-carousel-3').owlCarousel({
 })
 
     </script>
+
+
+
     <script>
         $(document).ready(function(){
   var owl = $('.owl-carousel');
@@ -610,5 +581,15 @@ $('.owl-carousel-3').owlCarousel({
         });
     });
     </script>
+
+    <script type="text/javascript">
+  $(document).ready(() => {
+
+$('video').attr('controlsList', 'nodownload');
+
+});
+</script>
+
+
   </body>
 </html>
